@@ -13,8 +13,10 @@ img {
 
 /* Variabler */
 :root {
-  --primary: #f4f5f1;
-  --secondary: #a1292b;
+  --bgcolor: #f4f5f0;
+  --red: #a1292b;
+  --black: #2a2929;
+  --white: #fefffb;
 }
 
 /* Generelt */
