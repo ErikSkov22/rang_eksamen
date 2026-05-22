@@ -1,0 +1,26 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Variabler */
+:root {
+  /*farver*/
+  --bgcolor: #f4f5f0;
+  --red: #a1292b;
+  --black: #2a2929;
+  --white: #fefffb;
+
+  /*fonte*/
+  --caveat-font: "Caveat", cursive;
+  --lalezar-font: "Lalezar", sans-serif;
+  --inter-font: "Inter", sans-serif;
+}

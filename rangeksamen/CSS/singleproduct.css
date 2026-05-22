@@ -2,16 +2,14 @@ body {
   background-color: var(--bgcolor);
   color: var(--black);
 }
-@media (min-width: 768px) {
-  h1 {
-    text-transform: uppercase;
-  }
+
+h1 {
+  text-transform: uppercase;
 }
 
 .grid1-1 {
   display: grid;
   grid-template-columns: 1fr;
-  border-bottom: 1px solid var(--border);
 }
 
 .product-imgs {
@@ -24,13 +22,8 @@ body {
   display: block;
 }
 
-.product-description {
-  padding: 32px var(--spacing) 24px;
-  border-top: 1px solid var(--border);
-}
-
 .product-description h1 {
-  font-family: "Lalezar", sans-serif;
+  font-family: var(--lalezar-font);
   font-size: 42px;
   letter-spacing: 2px;
   text-align: left;
@@ -38,17 +31,20 @@ body {
 }
 
 .product-description .price {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--inter-font);
   text-align: center;
   font-size: 28px;
   margin: 18px 0 42px;
 }
 
 .double-line {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
   height: 18px;
   margin-bottom: 16px;
+  width: 80%;
+  place-self: center;
+  margin-bottom: 20px;
 }
 
 .product-description > p {
@@ -79,6 +75,7 @@ summary {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 summary::-webkit-details-marker {
@@ -87,10 +84,12 @@ summary::-webkit-details-marker {
 
 summary::after {
   content: "+";
+  padding-right: 20px;
 }
 
 details[open] summary::after {
   content: "-";
+  padding-right: 20px;
 }
 
 .content {
@@ -98,31 +97,18 @@ details[open] summary::after {
   line-height: 1.4;
 }
 
-.section-devider {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  height: 30px;
-  margin-bottom: 0;
-}
-
 section.others {
   padding: 28px var(--spacing) 80px;
 }
 
 section.others > h1 {
-  font-family: "Lalezar", sans-serif;
+  font-family: var(--lalezar-font);
   color: var(--red);
   font-size: 28px;
   line-height: 1;
   letter-spacing: 1px;
   text-align: left;
   margin-bottom: 22px;
-}
-
-section.others > div {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
 }
 
 section.others img {
@@ -136,6 +122,9 @@ section.others a::after {
   text-decoration: underline;
 }
 
+.singleproduct-info {
+  margin-bottom: 1rem;
+}
 /* desktop */
 
 @media (min-width: 768px) {
@@ -144,7 +133,7 @@ section.others a::after {
   }
 
   .product-description {
-    padding: 140px 70px 0;
+    padding: 180px 140px 0;
     border-top: none;
   }
 
@@ -177,5 +166,39 @@ section.others a::after {
   section.others > div {
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
+  }
+
+  .double-line {
+    margin-bottom: 40px;
+  }
+
+  .product-description > p {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .size {
+    font-size: 24px;
+  }
+
+  summary::after {
+    content: "+";
+    padding-right: 20px;
+    font-size: 20px;
+  }
+
+  details[open] summary::after {
+    content: "-";
+    padding-right: 20px;
+    font-size: 20px;
+  }
+
+  .double-line {
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+  }
+  details {
+    border-bottom: 2px solid var(--red);
   }
 }

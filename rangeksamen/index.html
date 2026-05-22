@@ -6,28 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rang CPH</title>
     <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header class="site-header">
         <nav class="main-nav">
 
-            <a href="#" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <img src="photos/rangLogo.svg" alt="Logo" class="logo-img">
             </a>
 
-            <button class="burger-btn">☰</button>
+            <button class="burger-btn">=</button>
 
             <div class="nav-menu">
                 <div class="nav-left">
@@ -37,7 +36,7 @@
                     <a href="kontakt.html">Kontakt</a>
                 </div>
                 <div class="nav-right">
-                    <a href="#">Nyheder</a>
+                    <a href="nyheder.html">Nyheder</a>
                     <a href="#">Log ind</a>
                     <a href="#">Gemt</a>
                     <a href="#">Kurv</a>
@@ -51,22 +50,25 @@
     <main>
         <div class="forsidefotos">
 
-            <div class="foto-box">
-                <img src="photos/DSCF7399.jpg" alt="Accessories">
-                <a href="#" class="overlay-link">SE ACCESSORIES</a>
-            </div>
+
 
             <div class="foto-box">
                 <img src="photos/DSCF9223.JPG" alt="Smykker">
-                <h1 class="overlay-title">HANDMADE JEWELRY</h1>
+                <div class="overlay-title-box">
+                    <h1 class="overlay-title">HANDMADE</h1>
+                    <h1 class="overlay-title"> JEWELRY</h1>
+                </div>
                 <a href="#" class="overlay-link">SE SMYKKER</a>
+            </div>
+            <div class="foto-box">
+                <img src="photos/DSCF7399.jpg" alt="Accessories">
+                <a href="#" class="overlay-link">SE ACCESSORIES</a>
             </div>
         </div>
 
 
         <div class="section-divider"></div>
 
-        <section class="ny-sektion"></section>
 
         <section class="video-sektion">
             <div class="tekstovervideo">
@@ -82,7 +84,6 @@
 
         <div class="section-divider"></div>
 
-        <section class="ny-sektion"></section>
 
         <section class="billedeogtekst">
             <div class="baernoget">
@@ -96,7 +97,6 @@
 
         <div class="section-divider"></div>
 
-        <section class="ny-sektion"></section>
 
         <section class="new-releases-section">
 
@@ -132,7 +132,6 @@
 
         <div class="section-divider"></div>
 
-        <section class="ny-sektion"></section>
     </main>
 
     <footer class="site-footer">
@@ -157,40 +156,8 @@
     </footer>
 
     <!-- JS -->
-    <script src="js/script.js"></script>
+    <script src="js/navigation.js"></script>
 
-    <script>
-        const burgerBtn = document.querySelector('.burger-btn');
-        const navMenu = document.querySelector('.nav-menu');
-
-        burgerBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-
-            // Frivillig ekstra: Skift ikon til et X når den er åben
-            if (navMenu.classList.contains('active')) {
-                burgerBtn.textContent = '✕';
-            } else {
-                burgerBtn.textContent = '☰';
-            }
-        });
-    </script>
-
-    <script>
-        // Vi finder headeren på siden
-        const header = document.querySelector('.site-header');
-
-        // Vi lytter efter, om brugeren scroller
-        window.addEventListener('scroll', () => {
-
-            // Hvis man scroller mere end 50 pixels ned...
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled'); // ...bliver den hvid
-            } else {
-                header.classList.remove('scrolled'); // ...ellers bliver den gennemsigtig igen i toppen
-            }
-
-        });
-    </script>
 </body>
 
 </html>
