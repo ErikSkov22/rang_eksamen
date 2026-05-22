@@ -1,94 +1,5 @@
 /* ===========================================
-   1. BASE STYLES / GLOBALS
-=========================================== */
-body {
-  margin: 0;
-  font-family: "Lalezar", sans-serif;
-}
-
-/* ===========================================
-   --- MOBILE FIRST (Standard layout) ---
-=========================================== */
-
-/* ===========================================
-   2. HEADER & NAVIGATION
-=========================================== */
-.site-header {
-  width: 100%;
-  padding: 15px 20px;
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.site-header.scrolled {
-  background-color: var(--white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.main-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  display: flex;
-  z-index: 101;
-}
-
-.logo-img {
-  height: 60px;
-  width: auto;
-}
-
-.burger-btn {
-  display: block;
-  background: none;
-  border: none;
-  font-size: 2.5rem;
-  cursor: pointer;
-  color: #111;
-  padding: 0;
-  z-index: 101;
-}
-
-.nav-menu {
-  display: none;
-  width: 100%;
-  flex-direction: column;
-  padding-top: 30px;
-  gap: 20px;
-}
-
-.nav-menu.active {
-  display: flex;
-}
-
-.nav-left,
-.nav-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.main-nav a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 400;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* ===========================================
-   3. FORSIDE FOTOS (Hero Billeder)
+ FORSIDE FOTOS (Hero Billeder)
 =========================================== */
 .forsidefotos {
   display: flex;
@@ -111,15 +22,18 @@ body {
   object-fit: cover;
   display: block;
 }
-
-.overlay-title {
+.overlay-title-box {
+  display: flex;
+  gap: 5px;
   position: absolute;
   bottom: 60px;
   width: 100%;
-  text-align: center;
+  justify-content: center;
+}
+.overlay-title {
   color: var(--red);
-  font-family: "Jomhuria", serif;
-  font-size: 4rem;
+  font-family: var(--lalezar-font);
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -129,7 +43,7 @@ body {
   width: 100%;
   text-align: center;
   color: var(--red);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--lalezar-font);
   font-weight: 800;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -137,19 +51,7 @@ body {
 }
 
 /* ===========================================
-   4. SEKTIONS ADSKILLELSE (Divider)
-=========================================== */
-.section-divider {
-  width: 100%;
-  height: 60px;
-  background-color: var(--bgcolor);
-  border-top: 1px solid #777;
-  border-bottom: 1px solid #777;
-  box-sizing: border-box;
-}
-
-/* ===========================================
-   5. VIDEO SEKTION
+  VIDEO SEKTION
 =========================================== */
 .video-sektion {
   display: flex;
@@ -158,7 +60,6 @@ body {
   justify-content: center;
   width: 100%;
   position: relative;
-  background-color: var(--bgcolor);
   padding: 80px 20px;
   box-sizing: border-box;
 }
@@ -171,7 +72,7 @@ body {
 }
 
 /* ===========================================
-   6. TEKST OVER VIDEO
+  TEKST OVER VIDEO
 =========================================== */
 .tekstovervideo {
   display: flex;
@@ -185,13 +86,8 @@ body {
   text-align: center;
 }
 
-.andenfont {
-  font-family: "Caveat", cursive;
-  font-size: 2.2rem;
-}
-
 /* ===========================================
-   7. BILLEDE & TEKST SPLIT (Rød boks)
+  BILLEDE & TEKST SPLIT (Rød boks)
 =========================================== */
 .billedeogtekst {
   display: flex;
@@ -223,7 +119,7 @@ body {
 }
 
 .split-title {
-  font-family: "Lalezar", sans-serif;
+  font-family: var(--lalezar-font);
   font-size: 3.5rem;
   margin: 0;
   line-height: 1;
@@ -231,19 +127,19 @@ body {
 }
 
 .split-subtitle {
-  font-family: "Caveat", cursive;
+  font-family: var(--caveat-font);
   font-size: 2.2rem;
   margin: 0;
   margin-top: -5px;
+  color: var(--white);
 }
 
 /* ===========================================
-   8. NEW RELEASES / PRODUKT GRID
+  NEW RELEASES / PRODUKT GRID
 =========================================== */
 .new-releases-section {
   width: 100%;
   padding: 60px 20px;
-  background-color: var(--bgcolor);
   box-sizing: border-box;
 }
 
@@ -257,148 +153,26 @@ body {
 }
 
 .header-cursive {
-  font-family: "Caveat", cursive;
+  font-family: var(--caveat-font);
   font-size: 2.5rem;
-  color: #111;
+  color: var(--black);
   margin: 0;
 }
 
 .header-bold {
-  font-family: "Lalezar", sans-serif;
+  font-family: var(--lalezar-font);
   font-size: 3rem;
   color: var(--red);
   text-transform: uppercase;
   margin: 0;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolonner på mobil */
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.product-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.product-item img {
-  width: 100%;
-  object-fit: cover;
-  aspect-ratio: 4 / 5; /* MAGIC: Cropper toppen og bunden på alle skærme */
-  display: block;
-}
-
-.product-link {
-  text-decoration: underline;
-  color: #111;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
-}
-
-/* ===========================================
-   9. FOOTER
-=========================================== */
-.site-footer {
-  background-color: #2b2b2b;
-  color: #ffffff;
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  align-items: center;
-  text-align: center;
-}
-
-.footer-col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.site-footer a {
-  color: #ffffff;
-  text-decoration: underline;
-  font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-  transition: opacity 0.2s ease;
-}
-
-.footer-address {
-  margin: 0;
-  margin-top: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
-  color: #f7f7f7;
-}
-
-.logo-col img {
-  width: 180px;
-  height: auto;
-  display: block;
-  filter: brightness(0) invert(100%);
-}
-
 /* ===========================================
    --- DESKTOP VERSION (Fra 768px og op) ---
 =========================================== */
 
-@keyframes shrink-logo {
-  from {
-    height: 100px;
-  }
-  to {
-    height: 40px;
-  }
-}
-
 @media (min-width: 768px) {
-  /* --- 2. Header & Nav (Desktop) --- */
-  .site-header {
-    padding: 30px 50px;
-  }
-
-  .burger-btn {
-    display: none;
-  }
-
-  .main-nav {
-    position: relative;
-  }
-
-  .nav-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0px;
-  }
-
-  .logo-img {
-    height: 100px;
-    animation: shrink-logo linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0px 100px;
-  }
-
-  .nav-menu {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-  }
-
-  .nav-left,
-  .nav-right {
-    flex-direction: row;
-    gap: 30px;
-  }
-
-  /* --- 3. Forside Fotos (Desktop) --- */
+  /* Forside Fotos */
   .forsidefotos {
     flex-direction: row;
     height: 98vh;
@@ -412,25 +186,24 @@ body {
   .overlay-title {
     font-size: 6rem;
     bottom: 80px;
+    letter-spacing: -7px;
+  }
+  .overlay-title-box {
+    gap: 20px;
   }
 
   .overlay-link {
     font-size: 1rem;
     bottom: 30px;
   }
-
-  /* --- 6. Tekst Over Video (Desktop) --- */
+  /* Tekst Over Video  */
   .tekstovervideo {
     flex-wrap: nowrap; /* Tvinger dem til at blive på én lang linje igen */
     gap: 150px; /* Det store lækre mellemrum! */
     font-size: 3rem;
   }
 
-  .andenfont {
-    font-size: 3rem;
-  }
-
-  /* --- 7. Billede & Tekst Split (Desktop) --- */
+  /* Billede & Tekst Split  */
   .billedeogtekst {
     flex-direction: row;
     height: 70vh;
@@ -454,7 +227,7 @@ body {
     font-size: 3rem;
   }
 
-  /* --- 8. New Releases / Produkt Grid (Desktop) --- */
+  /* New Releases / Produkt Grid  */
   .new-releases-header {
     margin-bottom: 60px;
   }
@@ -466,27 +239,5 @@ body {
 
   .header-bold {
     font-size: 5rem;
-  }
-
-  .product-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-  }
-
-  /* --- 9. Footer (Desktop) --- */
-  .site-footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 80px 100px;
-    text-align: left;
-  }
-
-  .footer-col {
-    align-items: flex-start;
-  }
-
-  .logo-col {
-    align-items: flex-end;
   }
 }
