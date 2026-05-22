@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -58,16 +61,98 @@
                 <h1 class="overlay-title">HANDMADE JEWELRY</h1>
                 <a href="#" class="overlay-link">SE SMYKKER</a>
             </div>
+        </div>
 
-        </div>
-        </div>
 
         <div class="section-divider"></div>
 
-        <section class="ny-sektion">
+        <section class="ny-sektion"></section>
+
+        <section class="video-sektion">
+            <div class="tekstovervideo">
+                <a>HÅNDLAVEDE</a>
+                <a class="andenfont">UNIKKE</a>
+                <a>SMYKKER</a>
+            </div>
+            <video class="bts-video" autoplay loop muted playsinline>
+                <source src="photos/rangBTS2.mp4" type="video/mp4">
+            </video>
+        </section>
+
+
+        <div class="section-divider"></div>
+
+        <section class="ny-sektion"></section>
+
+        <section class="billedeogtekst">
+            <div class="baernoget">
+                <img src="photos/necklacesIndex.jpg" alt="necklace">
+            </div>
+            <div class="splittekst">
+                <h2 class="split-title">BÆR NOGET</h2>
+                <p class="split-subtitle">DER FØLES SOM DIG</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="ny-sektion"></section>
+
+        <section class="new-releases-section">
+
+            <div class="new-releases-header">
+                <p class="header-cursive">NEW RELEASES</p>
+                <h2 class="header-bold">ONE OF A KIND</h2>
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product-item">
+                    <img src="photos/ring1.jpeg" alt="Unik ring 1">
+                    <a href="#" class="product-link">SE MERE</a>
+                </div>
+
+                <div class="product-item">
+                    <img src="photos/ring2.jpeg" alt="Unik ring 2">
+                    <a href="#" class="product-link">SE MERE</a>
+                </div>
+
+                <div class="product-item">
+                    <img src="photos/ring3.jpeg" alt="Unik ring 3">
+                    <a href="#" class="product-link">SE MERE</a>
+                </div>
+
+                <div class="product-item">
+                    <img src="photos/ring4.jpeg" alt="Unik ring 4">
+                    <a href="#" class="product-link">SE MERE</a>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="ny-sektion"></section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
+
+        <div class="footer-col">
+            <a href="#">INSTAGRAM</a>
+            <a href="#">FACEBOOK</a>
+            <a href="#">TIKTOK</a>
+        </div>
+
+        <div class="footer-col">
+            <a href="#">FAQ</a>
+            <a href="#">KONTAKT</a>
+            <a href="#">LEVERING</a>
+            <p class="footer-address">Kompagniestræde 24, København K 1208</p>
+        </div>
+
+        <div class="footer-col logo-col">
+            <img src="photos/rangLogo.svg" alt="RANG logo">
+        </div>
 
     </footer>
 
@@ -87,6 +172,23 @@
             } else {
                 burgerBtn.textContent = '☰';
             }
+        });
+    </script>
+
+    <script>
+        // Vi finder headeren på siden
+        const header = document.querySelector('.site-header');
+
+        // Vi lytter efter, om brugeren scroller
+        window.addEventListener('scroll', () => {
+
+            // Hvis man scroller mere end 50 pixels ned...
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled'); // ...bliver den hvid
+            } else {
+                header.classList.remove('scrolled'); // ...ellers bliver den gennemsigtig igen i toppen
+            }
+
         });
     </script>
 </body>

@@ -1,66 +1,63 @@
 /* ===========================================
-   ALMEN CSS / MOBIL VERSION (Base-styles)
+   1. BASE STYLES / GLOBALS
 =========================================== */
-
 body {
   margin: 0;
   font-family: "Lalezar", sans-serif;
 }
+
 /* ===========================================
-   SEKTIONS ADSKILLELSE (Fungerer på både mobil og web)
+   --- MOBILE FIRST (Standard layout) ---
 =========================================== */
 
-.section-divider {
-  width: 100%;
-  height: 60px; /* Gør tallet større eller mindre for at justere tykkelsen på den hvide boks */
-  background-color: #f7f7f7; /* En meget lys, næsten hvid/knækket hvid farve */
-  border-top: 1px solid #777; /* Tynd mørkegrå streg i toppen */
-  border-bottom: 1px solid #777; /* Tynd mørkegrå streg i bunden */
-  box-sizing: border-box; /* Sikrer at stregerne holdes inden for den samlede højde */
-}
-
-/* --- HEADER (Mobil) --- */
+/* ===========================================
+   2. HEADER & NAVIGATION
+=========================================== */
 .site-header {
   width: 100%;
   padding: 15px 20px;
   box-sizing: border-box;
-  position: fixed; /* Ligger fast over billederne */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: transparent; /* INGEN HVID BOKS - Billedet er baggrund */
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.site-header.scrolled {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .main-nav {
   display: flex;
-  flex-wrap: wrap; /* Tillader menuen at åbne sig nedenunder */
-  justify-content: space-between; /* Logo til venstre, knap til højre */
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 }
 
 .nav-logo {
   display: flex;
-  z-index: 101; /* Sørger for logoet altid er øverst */
+  z-index: 101;
 }
 
 .logo-img {
-  height: 60px; /* Tilpas højden hvis logoet stadig driller */
+  height: 60px;
   width: auto;
 }
 
-/* Burger Knap */
 .burger-btn {
   display: block;
   background: none;
   border: none;
   font-size: 2.5rem;
   cursor: pointer;
-  color: #111; /* Farven på de tre streger */
+  color: #111;
   padding: 0;
   z-index: 101;
 }
 
-/* Selve menu-containeren (Skjult som standard) */
 .nav-menu {
   display: none;
   width: 100%;
@@ -90,18 +87,20 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* --- FORSIDE FOTOS (Mobil) --- */
+/* ===========================================
+   3. FORSIDE FOTOS (Hero Billeder)
+=========================================== */
 .forsidefotos {
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
   height: auto;
-  margin-top: 0; /* FJERNET MARGIN: Billederne starter helt i toppen under headeren */
+  margin-top: 0;
 }
 
 .foto-box {
   width: 100%;
-  height: 95vh; /* Længere billeder på mobil */
+  height: 95vh;
   position: relative;
   overflow: hidden;
 }
@@ -113,15 +112,12 @@ body {
   display: block;
 }
 
-/* ... behold din overlay-title og overlay-link her som tidligere ... */
 .overlay-title {
   position: absolute;
   bottom: 60px;
   width: 100%;
   text-align: center;
-  color: var(
-    --red
-  ); /* Tjek at du har defineret --red i din root, ellers skriv 'red' */
+  color: var(--red);
   font-family: "Jomhuria", serif;
   font-size: 4rem;
   margin: 0;
@@ -141,10 +137,216 @@ body {
 }
 
 /* ===========================================
-   DESKTOP VERSION (Fra 768px)
+   4. SEKTIONS ADSKILLELSE (Divider)
+=========================================== */
+.section-divider {
+  width: 100%;
+  height: 60px;
+  background-color: var(--bgcolor);
+  border-top: 1px solid #777;
+  border-bottom: 1px solid #777;
+  box-sizing: border-box;
+}
+
+/* ===========================================
+   5. VIDEO SEKTION
+=========================================== */
+.video-sektion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  background-color: var(--bgcolor);
+  padding: 80px 20px;
+  box-sizing: border-box;
+}
+
+.bts-video {
+  width: 100%;
+  max-width: 1300px;
+  height: auto;
+  display: block;
+}
+
+/* ===========================================
+   6. TEKST OVER VIDEO
+=========================================== */
+.tekstovervideo {
+  display: flex;
+  flex-wrap: wrap; /* Lader teksten hoppe ned på næste linje på mobil */
+  gap: 15px; /* Mindre afstand mellem ordene på mobil */
+  font-size: 2rem; /* Mindre tekst på mobil */
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.andenfont {
+  font-family: "Caveat", cursive;
+  font-size: 2.2rem;
+}
+
+/* ===========================================
+   7. BILLEDE & TEKST SPLIT (Rød boks)
+=========================================== */
+.billedeogtekst {
+  display: flex;
+  flex-direction: column; /* Stabler billedet og den røde boks oven på hinanden */
+  width: 100%;
+}
+
+.baernoget {
+  width: 100%;
+  height: 55vh; /* Billedet fylder lidt over halvdelen af skærmen på mobil */
+}
+
+.baernoget img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.splittekst {
+  width: 100%;
+  background-color: var(--red);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrerer teksten lodret i boksen */
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+.split-title {
+  font-family: "Lalezar", sans-serif;
+  font-size: 3.5rem;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.split-subtitle {
+  font-family: "Caveat", cursive;
+  font-size: 2.2rem;
+  margin: 0;
+  margin-top: -5px;
+}
+
+/* ===========================================
+   8. NEW RELEASES / PRODUKT GRID
+=========================================== */
+.new-releases-section {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: var(--bgcolor);
+  box-sizing: border-box;
+}
+
+.new-releases-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.header-cursive {
+  font-family: "Caveat", cursive;
+  font-size: 2.5rem;
+  color: #111;
+  margin: 0;
+}
+
+.header-bold {
+  font-family: "Lalezar", sans-serif;
+  font-size: 3rem;
+  color: var(--red);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolonner på mobil */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-item img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5; /* MAGIC: Cropper toppen og bunden på alle skærme */
+  display: block;
+}
+
+.product-link {
+  text-decoration: underline;
+  color: #111;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+/* ===========================================
+   9. FOOTER
+=========================================== */
+.site-footer {
+  background-color: #2b2b2b;
+  color: #ffffff;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.site-footer a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-address {
+  margin: 0;
+  margin-top: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #f7f7f7;
+}
+
+.logo-col img {
+  width: 180px;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(100%);
+}
+
+/* ===========================================
+   --- DESKTOP VERSION (Fra 768px og op) ---
 =========================================== */
 
-/* Opskriften på logoets skrumpe-animation */
 @keyframes shrink-logo {
   from {
     height: 100px;
@@ -155,23 +357,23 @@ body {
 }
 
 @media (min-width: 768px) {
+  /* --- 2. Header & Nav (Desktop) --- */
   .site-header {
     padding: 30px 50px;
   }
 
   .burger-btn {
-    display: none; /* Væk med burgerknap på computer */
+    display: none;
   }
 
   .main-nav {
-    position: relative; /* Gør det muligt at centrere logoet perfekt */
+    position: relative;
   }
 
-  /* Centrerer logoet i midten af skærmen uafhængigt af links */
   .nav-logo {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Centrerer den nu KUN vandret */
+    transform: translateX(-50%);
     top: 0px;
   }
 
@@ -182,11 +384,10 @@ body {
     animation-range: 0px 100px;
   }
 
-  /* Tvinger menuen frem på desktop */
   .nav-menu {
     display: flex !important;
     flex-direction: row;
-    justify-content: space-between; /* Skubber venstre links til venstre, højre links til højre */
+    justify-content: space-between;
     width: 100%;
     padding: 0;
   }
@@ -197,10 +398,10 @@ body {
     gap: 30px;
   }
 
-  /* --- FORSIDE FOTOS (Desktop) --- */
+  /* --- 3. Forside Fotos (Desktop) --- */
   .forsidefotos {
     flex-direction: row;
-    height: 98vh; /* Sørger for billederne fylder hele skærmen på computer */
+    height: 98vh;
   }
 
   .foto-box {
@@ -216,5 +417,76 @@ body {
   .overlay-link {
     font-size: 1rem;
     bottom: 30px;
+  }
+
+  /* --- 6. Tekst Over Video (Desktop) --- */
+  .tekstovervideo {
+    flex-wrap: nowrap; /* Tvinger dem til at blive på én lang linje igen */
+    gap: 150px; /* Det store lækre mellemrum! */
+    font-size: 3rem;
+  }
+
+  .andenfont {
+    font-size: 3rem;
+  }
+
+  /* --- 7. Billede & Tekst Split (Desktop) --- */
+  .billedeogtekst {
+    flex-direction: row;
+    height: 70vh;
+  }
+
+  .baernoget {
+    flex: 4;
+    height: 100%;
+  }
+
+  .splittekst {
+    flex: 6;
+    height: 100%;
+  }
+
+  .split-title {
+    font-size: 9rem;
+  }
+
+  .split-subtitle {
+    font-size: 3rem;
+  }
+
+  /* --- 8. New Releases / Produkt Grid (Desktop) --- */
+  .new-releases-header {
+    margin-bottom: 60px;
+  }
+
+  .header-cursive {
+    font-size: 4.3rem;
+    margin-right: 2rem;
+  }
+
+  .header-bold {
+    font-size: 5rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  /* --- 9. Footer (Desktop) --- */
+  .site-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 80px 100px;
+    text-align: left;
+  }
+
+  .footer-col {
+    align-items: flex-start;
+  }
+
+  .logo-col {
+    align-items: flex-end;
   }
 }
