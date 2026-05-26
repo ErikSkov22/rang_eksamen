@@ -187,7 +187,7 @@
   }
 
   .overlay-title {
-    font-size: 6rem;
+    font-size: 5rem;
     bottom: 80px;
     letter-spacing: -7px;
   }
@@ -241,6 +241,6 @@
   }
 
   .header-bold {
-    font-size: 5rem;
+    font-size: 2rem;
   }
 }
