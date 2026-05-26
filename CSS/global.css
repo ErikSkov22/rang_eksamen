@@ -212,6 +212,7 @@ body {
   position: fixed;
   inset: 0;
   background: var(--black);
+
   opacity: 0;
   pointer-events: none;
   transition: 0.3s ease;
@@ -219,7 +220,7 @@ body {
 }
 
 .panel-overlay.is-open {
-  opacity: 1;
+  opacity: 0.6;
   pointer-events: auto;
 }
 
