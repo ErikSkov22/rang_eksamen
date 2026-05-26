@@ -35,25 +35,11 @@
                 <div class="nav-left">
                     <a href="smykker.html">Smykker</a>
                     <a href="accessories.html" style="color: var(--red);">Accessories</a>
-
-            <a href="index.html" class="nav-logo">
-                <img src="photos/rangLogo.svg" alt="Logo" class="logo-img">
-            </a>
-
-            <button class="burger-btn">=</button>
-
-            <div class="nav-menu">
-                <div class="nav-left">
-                    <a href="smykker.html">Smykker</a>
-                    <a href="accessories.html">Accessories</a>
                     <a href="Om.html">Om</a>
                     <a href="kontakt.html">Kontakt</a>
                 </div>
                 <div class="nav-right">
                     <a href="nyheder.html">Nyheder</a>
-                    <a href="#">Log ind</a>
-                    <a href="#">Gemt</a>
-                    <a href="#">Kurv</a>
                     <a href="#" data-panel-open="login">Log ind</a>
                     <a href="#" data-panel-open="saved">Gemt (<span id="savedCount">0</span>)</a>
                     <a href="#" data-panel-open="cart">Kurv (<span id="cartCount">0</span>)</a>
@@ -93,10 +79,6 @@
 
     </footer>
 
-    <script src="JS/navigation.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    <script src="JS/accessories.js" defer></script>
-    <!-- SLIDE-IN: KURV -->
     <aside id="cartPanel" class="slide-panel">
         <button class="panel-close">×</button>
 
@@ -115,7 +97,6 @@
         <button class="panel-main-btn">FORTSÆT</button>
     </aside>
 
-    <!-- SLIDE-IN: GEMTE -->
     <aside id="savedPanel" class="slide-panel">
         <button class="panel-close">×</button>
 
@@ -127,7 +108,6 @@
         </div>
     </aside>
 
-    <!-- SLIDE-IN: LOG IND -->
     <aside id="loginPanel" class="slide-panel">
         <button class="panel-close">×</button>
 
@@ -148,12 +128,13 @@
             <a href="#" class="create-profile-link">Lav profil</a>
         </form>
     </aside>
+
     <div id="panelOverlay" class="panel-overlay"></div>
 
-
-    <!-- JS -->
-    <script src="js/navigation.js"></script>
-    <script src="js/slidepanels.js"></script>
+    <script src="JS/navigation.js" defer></script>
+    <script src="JS/slidepanels.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="JS/accessories.js" defer></script>
 
 </body>
 
