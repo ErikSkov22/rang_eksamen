@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rang CPH</title>
+    <title>Rang CPH - Produkt</title>
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/global.css">
+
+    <link rel="stylesheet" href="CSS/custom.css">
+    <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/singleproduct.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
@@ -21,13 +23,10 @@
 <body>
     <header class="site-header">
         <nav class="main-nav">
-
             <a href="index.html" class="nav-logo">
                 <img src="photos/rangLogo.svg" alt="Logo" class="logo-img">
             </a>
-
             <button class="burger-btn">=</button>
-
             <div class="nav-menu">
                 <div class="nav-left">
                     <a href="smykker.html">Smykker</a>
@@ -42,51 +41,34 @@
                     <a href="#">Kurv</a>
                 </div>
             </div>
-
         </nav>
     </header>
 
-
     <main>
         <section class="grid1-1">
-            <div class="product-imgs">
-                <div>
-                    <img src="photos/Skærmbillede 2026-05-21 kl. 16.05.56.png" alt="">
-                    <a href="#"></a>
-                </div>
-                <div>
-                    <img src="photos/Skærmbillede 2026-05-21 kl. 16.05.56.png" alt="">
-                    <a href="#"></a>
-                </div>
-                <div>
-                    <img src="photos/Skærmbillede 2026-05-21 kl. 16.05.56.png" alt="">
-                    <a href="#"></a>
-                </div>
-                <div>
-                    <img src="photos/Skærmbillede 2026-05-21 kl. 16.05.56.png" alt="">
-                    <a href="#"></a>
-                </div>
+
+            <div class="product-imgs" id="single-billede-container">
+                <div style="width: 100%; aspect-ratio: 4/5; background: #f4f4f4;"></div>
             </div>
+
             <div class="product-description">
-                <h1>PRODUKTNAVN</h1>
-                <p class="price">PRIS DKK</p>
+                <h1 id="single-navn">Indlæser...</h1>
+                <p class="price" id="single-pris"></p>
                 <div class="double-line"></div>
-                <p class="size">STØRRELSE</p>
+                <p class="size" id="single-size"></p>
                 <button>FØJ TIL KURV</button>
+
                 <section class="singleproduct-info">
                     <details open>
                         <summary>Beskrivelse</summary>
-
                         <div class="content">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aliquam nobis recusandae saepe.
+                            <p id="single-desc">
+                                Læser data fra databasen...
                             </p>
                         </div>
                     </details>
                     <details>
                         <summary>Størrelsesguide</summary>
-
                         <div class="content">
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -96,7 +78,6 @@
                     </details>
                     <details>
                         <summary>Pleje</summary>
-
                         <div class="content">
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -106,7 +87,6 @@
                     </details>
                     <details>
                         <summary>Unik</summary>
-
                         <div class="content">
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -114,14 +94,13 @@
                             </p>
                         </div>
                     </details>
-
                 </section>
-
             </div>
 
         </section>
 
         <div class="section-divider"></div>
+
         <section class="others">
             <h1>Andre i samme størrelse</h1>
             <div class="product-grid">
@@ -130,17 +109,14 @@
                     <img src="photos/ring1.jpeg" alt="Unik ring 1">
                     <a href="#" class="product-link">SE MERE</a>
                 </div>
-
                 <div class="product-item">
                     <img src="photos/ring2.jpeg" alt="Unik ring 2">
                     <a href="#" class="product-link">SE MERE</a>
                 </div>
-
                 <div class="product-item">
                     <img src="photos/ring3.jpeg" alt="Unik ring 3">
                     <a href="#" class="product-link">SE MERE</a>
                 </div>
-
                 <div class="product-item">
                     <img src="photos/ring4.jpeg" alt="Unik ring 4">
                     <a href="#" class="product-link">SE MERE</a>
@@ -151,29 +127,25 @@
     </main>
 
     <footer class="site-footer">
-
         <div class="footer-col">
             <a href="#">INSTAGRAM</a>
             <a href="#">FACEBOOK</a>
             <a href="#">TIKTOK</a>
         </div>
-
         <div class="footer-col">
             <a href="#">FAQ</a>
             <a href="#">KONTAKT</a>
             <a href="#">LEVERING</a>
             <p class="footer-address">Kompagniestræde 24, København K 1208</p>
         </div>
-
         <div class="footer-col logo-col">
             <img src="photos/rangLogo.svg" alt="RANG logo">
         </div>
-
     </footer>
 
-    <!-- JS -->
-    <script src="js/navigation.js"></script>
-
+    <script src="JS/navigation.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="JS/singleproduct.js" defer></script>
 </body>
 
 </html>
