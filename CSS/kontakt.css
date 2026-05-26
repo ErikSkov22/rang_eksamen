@@ -1,10 +1,12 @@
+/* FJERNET margin-top fra main, så griddet starter helt i toppen af skærmen */
 main {
-  margin-top: 180px;
+  margin-top: 0;
 }
-/*FAQ*/
 
+/*FAQ*/
 .sectionFirst {
-  padding: 0px 24px 80px;
+  /* Tilføjet 180px i toppen her, så teksten skubbes ned under logoet på mobil */
+  padding: 180px 24px 80px;
 }
 
 .sectionFirst h1 {
@@ -78,7 +80,8 @@ main {
 
 /*form*/
 .contact-section {
-  padding: 40px 24px 70px;
+  /* Tilføjet 180px i toppen, hvis denne sektion er øverst */
+  padding: 180px 24px 70px;
 }
 
 .contact-section h1 {
@@ -131,6 +134,9 @@ main {
   letter-spacing: 1px;
 }
 
+/* ===========================================
+   DESKTOP VERSION (Fra 768px og op)
+=========================================== */
 @media (min-width: 768px) {
   .grid-1-1-kontakt {
     display: grid;
@@ -139,7 +145,8 @@ main {
 
   /*FAQ*/
   .sectionFirst {
-    padding: 70px 130px 120px;
+    /* Sikrer, at kun teksten får 180px afstand fra toppen, mens den anden kolonne (billedet) kan gå i 0 */
+    padding: 180px 130px 120px;
   }
 
   .sectionFirst h1 {
@@ -169,10 +176,11 @@ main {
   .sectionFirst > p:last-of-type {
     font-size: 90px;
   }
-  /*form*/
 
+  /*form*/
   .contact-section {
-    padding: 60px 80px 90px;
+    /* Sikrer at teksten her også flugter pænt, hvis den ligger inde i dit 1-1 grid */
+    padding: 180px 80px 90px;
   }
 
   .contact-form {
@@ -182,6 +190,7 @@ main {
   .contact-form label {
     font-size: 25px;
   }
+
   .contact-form button {
     width: 195px;
     font-size: 20px;
