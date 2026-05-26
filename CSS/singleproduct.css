@@ -1,7 +1,6 @@
-body {
-  background-color: var(--bgcolor);
-  color: var(--black);
-}
+/* =======================================
+   SINGLE PRODUCT CSS
+======================================= */
 
 h1 {
   text-transform: uppercase;
@@ -10,20 +9,39 @@ h1 {
 .grid1-1 {
   display: grid;
   grid-template-columns: 1fr;
+  padding-top: 0; /* ÆNDRET: Fjerner padding, så billederne starter på pixel 0 i toppen */
 }
 
+/* =======================================
+   BILLED-GRID (2x2 HELT TÆT)
+======================================= */
 .product-imgs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;
+  width: 100%;
+}
+
+.product-imgs div {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background-color: #f4f4f4;
+  overflow: hidden;
 }
 
 .product-imgs img {
-  width: 100%;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =======================================
+   PRODUKT TEKST & INFO
+======================================= */
+.product-description {
+  padding: 40px 20px; /* Sikrer at teksten har lidt luft på mobilskærme under billedet */
 }
 
 .product-description h1 {
-  font-family: var(--lalezar-font);
   font-size: 42px;
   letter-spacing: 2px;
   text-align: left;
@@ -31,7 +49,6 @@ h1 {
 }
 
 .product-description .price {
-  font-family: var(--inter-font);
   text-align: center;
   font-size: 28px;
   margin: 18px 0 42px;
@@ -41,10 +58,9 @@ h1 {
   border-top: 1px solid var(--black);
   border-bottom: 1px solid var(--black);
   height: 18px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   width: 80%;
   place-self: center;
-  margin-bottom: 20px;
 }
 
 .product-description > p {
@@ -62,6 +78,14 @@ h1 {
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 16px;
+  cursor: pointer;
+}
+
+/* =======================================
+   HARMONIKA MENU (DETAILS)
+======================================= */
+.singleproduct-info {
+  margin-bottom: 1rem;
 }
 
 details {
@@ -97,12 +121,14 @@ details[open] summary::after {
   line-height: 1.4;
 }
 
+/* =======================================
+   "ANDRE I SAMME STØRRELSE" SEKTION
+======================================= */
 section.others {
-  padding: 28px var(--spacing) 80px;
+  padding: 28px 20px 80px;
 }
 
 section.others > h1 {
-  font-family: var(--lalezar-font);
   color: var(--red);
   font-size: 28px;
   line-height: 1;
@@ -111,44 +137,31 @@ section.others > h1 {
   margin-bottom: 22px;
 }
 
-section.others img {
-  width: 100%;
-}
-
-section.others a::after {
-  content: "link";
-  color: var(--black);
-  font-size: 12px;
-  text-decoration: underline;
-}
-
-.singleproduct-info {
-  margin-bottom: 1rem;
-}
-/* desktop */
-
+/* =======================================
+   DESKTOP (STOR SKÆRM)
+======================================= */
 @media (min-width: 768px) {
   .grid1-1 {
     grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding-top: 0; /* Sikrer at billederne går helt til tops på computer også */
+    align-items: start;
   }
 
   .product-description {
-    padding: 180px 140px 0;
+    padding: 240px 40px 0 0; /* ÆNDRET: Skubber KUN teksten ned under logoet */
     border-top: none;
   }
 
   .product-description h1 {
     font-size: 48px;
-    text-align: center;
+    text-align: left;
     letter-spacing: 5px;
   }
 
   .product-description .price {
+    text-align: left;
     margin-bottom: 50px;
-  }
-
-  .section-devider {
-    height: 40px;
   }
 
   section.others {
@@ -163,18 +176,15 @@ section.others a::after {
     letter-spacing: 5px;
   }
 
-  section.others > div {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 50px;
-  }
-
   .double-line {
     margin-bottom: 40px;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+    width: 100%;
   }
 
   .product-description > p {
     font-size: 20px;
-    letter-spacing: 1px;
     margin-bottom: 20px;
   }
 
@@ -183,21 +193,13 @@ section.others a::after {
   }
 
   summary::after {
-    content: "+";
-    padding-right: 20px;
     font-size: 20px;
   }
 
   details[open] summary::after {
-    content: "-";
-    padding-right: 20px;
     font-size: 20px;
   }
 
-  .double-line {
-    border-top: 2px solid var(--black);
-    border-bottom: 2px solid var(--black);
-  }
   details {
     border-bottom: 2px solid var(--red);
   }
