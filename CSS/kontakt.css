@@ -5,7 +5,6 @@ main {
 
 /*FAQ*/
 .sectionFirst {
-  /* Tilføjet 180px i toppen her, så teksten skubbes ned under logoet på mobil */
   padding: 180px 24px 80px;
 }
 
@@ -80,7 +79,6 @@ main {
 
 /*form*/
 .contact-section {
-  /* Tilføjet 180px i toppen, hvis denne sektion er øverst */
   padding: 180px 24px 70px;
 }
 
@@ -141,11 +139,25 @@ main {
   .grid-1-1-kontakt {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: flex-start; /* Stopper billedet fra at vokse sammen med FAQ'en */
+    margin-bottom: 0;
+  }
+
+  .grid-1-1-kontakt > div {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Billedet er nu låst til en fast højde */
+  .grid-1-1-kontakt img {
+    width: 100%;
+    height: 1100px; /* <--- DET ER DETTE TAL, DU KAN JUSTERE, HVIS DET MANGLER ET PAR PIXELS */
+    object-fit: cover;
+    display: block;
   }
 
   /*FAQ*/
   .sectionFirst {
-    /* Sikrer, at kun teksten får 180px afstand fra toppen, mens den anden kolonne (billedet) kan gå i 0 */
     padding: 180px 130px 120px;
   }
 
@@ -179,7 +191,6 @@ main {
 
   /*form*/
   .contact-section {
-    /* Sikrer at teksten her også flugter pænt, hvis den ligger inde i dit 1-1 grid */
     padding: 180px 80px 90px;
   }
 

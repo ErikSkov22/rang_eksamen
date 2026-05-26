@@ -41,9 +41,7 @@
 
 /* Den aktive knap (som 'RINGE' på dit billede) */
 .filter-btn.active {
-  color: var(
-    --red
-  ); /* Skift evt. ud med den præcise røde farvekode, f.eks. #9a3324, hvis --red ikke findes */
+  color: var(--red);
 }
 
 /* Kassen produkterne ligger i */
@@ -79,9 +77,10 @@
   color: var(--black);
 }
 
-.heart-icon :hover {
+.heart-icon:hover {
   color: var(--red);
 }
+
 /* Tekstområdet under billedet */
 .product-text-box {
   display: flex;
@@ -111,4 +110,67 @@
 
 .section-divider {
   margin-top: 2.5rem;
+}
+
+/* ===========================================
+   HOVER EFFEKT PÅ PRODUKTBILLEDER
+=========================================== */
+.product-image-box a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.product-image-box .main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+/* Hover-billedet (fra image3) ligger skjult ovenpå */
+.product-image-box .hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Fader det primære ud, og fader modelbilledet ind ved hover */
+.product-image-box:hover .main-img {
+  opacity: 0;
+}
+
+.product-image-box:hover .hover-img {
+  opacity: 1;
+}
+
+/* ===========================================
+   TEKST & BESKEDER (Flyttet fra JavaScript)
+=========================================== */
+/* Størrelses-teksten under produktnavnet */
+.product-size {
+  font-family: var(--inter-font);
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-transform: none;
+  color: var(--black);
+  margin-top: 4px;
+}
+
+/* Centreret besked, f.eks. "Fandt ingen produkter" */
+.empty-msg {
+  text-align: center;
+  padding: 50px;
+  grid-column: 1 / -1; /* Får beskeden til at fylde hele bredden i griddet */
+}
+
+/* Rød tekst til database fejl */
+.error-msg {
+  color: var(--red);
 }
