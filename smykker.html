@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rang CPH</title>
+    <title>Rang CPH - Smykker</title>
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/global.css">
@@ -20,13 +20,47 @@
 
 <body>
 
-    <header>
+    <header class="site-header">
+        <nav class="main-nav">
 
+            <a href="index.html" class="nav-logo">
+                <img src="photos/rangLogo.svg" alt="Logo" class="logo-img">
+            </a>
+
+            <button class="burger-btn">=</button>
+
+            <div class="nav-menu">
+                <div class="nav-left">
+                    <a href="smykker.html">Smykker</a>
+                    <a href="accessories.html">Accessories</a>
+                    <a href="Om.html">Om</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <div class="nav-right">
+                    <a href="nyheder.html">Nyheder</a>
+                    <a href="#">Log ind</a>
+                    <a href="#">Gemt</a>
+                    <a href="#">Kurv</a>
+                </div>
+            </div>
+
+        </nav>
     </header>
 
     <main>
+        <h1 class="page-title">HANDMADE JEWELRY</h1>
 
+        <div class="filter-menu">
+            <button class="filter-btn active" data-category="alle">ALLE SMYKKER</button>
+            <button class="filter-btn" data-category="ring">RINGE</button>
+            <button class="filter-btn" data-category="halskæde">HALSKÆDER</button>
+        </div>
+        <div class="section-divider"></div>
+
+        <div id="produkt-container" class="product-grid page-container">
+        </div>
     </main>
+    <div class="section-divider"></div>
 
     <footer class="site-footer">
 
@@ -49,8 +83,9 @@
 
     </footer>
 
-    <!-- JS -->
     <script src="js/navigation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/produkter.js"></script>
 </body>
 
 </html>

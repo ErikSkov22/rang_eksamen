@@ -1,0 +1,113 @@
+/* ===========================================
+   SMYKKER SIDE SPECIFIK CSS
+=========================================== */
+
+/* Overskrift på siden */
+.page-title {
+  text-align: center;
+  font-size: 4rem;
+  margin-top: 150px;
+  text-transform: uppercase;
+}
+
+/* ===========================================
+   FILTRERINGSMENU
+=========================================== */
+.filter-menu {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Afstanden mellem knapperne */
+  margin-bottom: 50px;
+  flex-wrap: wrap; /* Gør at de rykker ned på en ny linje på små skærme */
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-family: var(--inter-font), sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--black);
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+/* Når man holder musen over */
+.filter-btn:hover {
+  color: var(--red); /* Forudsætter du har en --red i din global.css */
+}
+
+/* Den aktive knap (som 'RINGE' på dit billede) */
+.filter-btn.active {
+  color: var(
+    --red
+  ); /* Skift evt. ud med den præcise røde farvekode, f.eks. #9a3324, hvis --red ikke findes */
+}
+
+/* Kassen produkterne ligger i */
+.page-container {
+  padding: 20px;
+  min-height: 50vh;
+}
+
+/* Billedboksen (rammen om billedet) */
+.product-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border: 0px solid var(--black);
+  overflow: hidden;
+}
+
+/* Det rigtige billede */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hjerteikonet i hjørnet */
+.heart-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  color: var(--black);
+}
+
+.heart-icon :hover {
+  color: var(--red);
+  fill: transparent;
+}
+/* Tekstområdet under billedet */
+.product-text-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-family: var(--lalezar-font), sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+/* Venstre side af tekstområdet (Navn og Str) */
+.product-text-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Linket på produktnavnet */
+.product-link-clean {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.section-divider {
+  margin-bottom: 2.5rem;
+}
