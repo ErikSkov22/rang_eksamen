@@ -3,7 +3,10 @@
 // ==========================================================
 const minSupabaseUrl = "https://ljpgrgbwtefiivfpynkf.supabase.co";
 const minSupabaseKey = "sb_publishable_ZBHtBc88hjDkz95dcCUMyQ_rXmo4XkF";
-const minSupabase = window.supabase.createClient(minSupabaseUrl, minSupabaseKey);
+const minSupabase = window.supabase.createClient(
+  minSupabaseUrl,
+  minSupabaseKey,
+);
 
 // Vi opretter en global variabel til at gemme alle produkter,
 // så vi ikke belaster databasen hver gang vi trykker på et filter.
@@ -32,7 +35,9 @@ async function hentOgVisProdukter() {
 
     // HER ER DØRMANDEN
     alleProdukter = data.filter((produkt) => {
-      return produkt.category && produkt.category.toLowerCase() !== "accessories";
+      return (
+        produkt.category && produkt.category.toLowerCase() !== "accessories"
+      );
     });
 
     // Vis produkterne (nu UDEN accessories) som det første
@@ -79,7 +84,7 @@ function visProdukter(produkter) {
         <div class="product-text-box">
           <div class="product-text-left">
             <a href="${dynamiskLink}" class="product-link-clean">${produkt.navn}</a>
-            <span>STR. ${produkt.size || ""}</span>
+            <span style="font-family: var(--inter-font); font-size: 0.9rem; font-weight: normal; text-transform: none; color: var(--black); margin-top: 4px;">STR. ${produkt.size || ""}</span>
           </div>
           <div>
             <span>${produkt.price} DKK</span>
@@ -142,12 +147,16 @@ function opsætFiltrering() {
         visProdukter(alleProdukter);
       } else {
         const filtreredeProdukter = alleProdukter.filter((produkt) => {
-          return produkt.category && produkt.category.toLowerCase() === valgtKategori.toLowerCase();
+          return (
+            produkt.category &&
+            produkt.category.toLowerCase() === valgtKategori.toLowerCase()
+          );
         });
 
         // Tjek om kategorien er tom
         if (filtreredeProdukter.length === 0) {
-          document.getElementById("produkt-container").innerHTML = `<h2 style='text-align:center; grid-column: 1/-1; padding: 50px;'>📭 Der er ikke uploadet nogen produkter i denne kategori endnu.</h2>`;
+          document.getElementById("produkt-container").innerHTML =
+            `<h2 style='text-align:center; grid-column: 1/-1; padding: 50px;'>📭 Der er ikke uploadet nogen produkter i denne kategori endnu.</h2>`;
         } else {
           visProdukter(filtreredeProdukter);
         }

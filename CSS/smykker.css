@@ -6,7 +6,7 @@
 .page-title {
   text-align: center;
   font-size: 4rem;
-  margin-top: 150px;
+  margin-top: 190px;
   text-transform: uppercase;
 }
 
@@ -41,13 +41,17 @@
 
 /* Den aktive knap (som 'RINGE' på dit billede) */
 .filter-btn.active {
-  color: var(--red); /* Skift evt. ud med den præcise røde farvekode, f.eks. #9a3324, hvis --red ikke findes */
+  color: var(
+    --red
+  ); /* Skift evt. ud med den præcise røde farvekode, f.eks. #9a3324, hvis --red ikke findes */
 }
 
 /* Kassen produkterne ligger i */
 .page-container {
   padding: 20px;
   min-height: 50vh;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 /* Billedboksen (rammen om billedet) */
@@ -106,5 +110,5 @@
 }
 
 .section-divider {
-  margin-bottom: 2.5rem;
+  margin-top: 2.5rem;
 }

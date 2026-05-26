@@ -18,10 +18,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
-    <script src="js/navigation.js" defer></script>
-    <script src="js/slidepanels.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    <script src="js/singleproduct.js" defer></script>
 </head>
 
 <body>
@@ -74,18 +70,16 @@
                     <details>
                         <summary>Størrelsesguide</summary>
                         <div class="content">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aliquam nobis recusandae saepe.
+                            <p id="single-size-guide">
+                                Indlæser data...
                             </p>
                         </div>
                     </details>
                     <details>
                         <summary>Pleje</summary>
                         <div class="content">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aliquam nobis recusandae saepe.
+                            <p id="single-care">
+                                Indlæser data...
                             </p>
                         </div>
                     </details>
@@ -93,8 +87,7 @@
                         <summary>Unik</summary>
                         <div class="content">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aliquam nobis recusandae saepe.
+                                Alle vores smykker er håndlavede. Derfor kan der forekomme små variationer.
                             </p>
                         </div>
                     </details>
@@ -129,7 +122,7 @@
             </div>
         </section>
     </main>
-
+    <div class="section-divider"></div>
     <footer class="site-footer">
         <div class="footer-col">
             <a href="#">INSTAGRAM</a>
@@ -148,7 +141,6 @@
     </footer>
 
 
-    <!-- SLIDE-IN: KURV -->
     <aside id="cartPanel" class="slide-panel">
         <button class="panel-close">×</button>
 
@@ -167,7 +159,6 @@
         <button class="panel-main-btn">FORTSÆT</button>
     </aside>
 
-    <!-- SLIDE-IN: GEMTE -->
     <aside id="savedPanel" class="slide-panel">
         <button class="panel-close">×</button>
 
@@ -179,7 +170,6 @@
         </div>
     </aside>
 
-    <!-- SLIDE-IN: LOG IND -->
     <aside id="loginPanel" class="slide-panel">
         <button class="panel-close">×</button>
 
@@ -201,14 +191,10 @@
         </form>
     </aside>
 
-    <!-- Mørk baggrund bag panel -->
     <div id="panelOverlay" class="panel-overlay"></div>
 
-
-
-    <!-- JS -->
-    <script src="js/navigation.js"></script>
-    <script src="js/slidepanels.js"></script>
+    <script src="JS/navigation.js" defer></script>
+    <script src="JS/slidepanels.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
     <script src="JS/singleproduct.js" defer></script>
 </body>
