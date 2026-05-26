@@ -3,10 +3,7 @@
 // ==========================================================
 const minSupabaseUrl = "https://ljpgrgbwtefiivfpynkf.supabase.co";
 const minSupabaseKey = "sb_publishable_ZBHtBc88hjDkz95dcCUMyQ_rXmo4XkF";
-const minSupabase = window.supabase.createClient(
-  minSupabaseUrl,
-  minSupabaseKey,
-);
+const minSupabase = window.supabase.createClient(minSupabaseUrl, minSupabaseKey);
 
 // Vi opretter en global variabel til at gemme alle produkter,
 // så vi ikke belaster databasen hver gang vi trykker på et filter.
@@ -35,9 +32,7 @@ async function hentOgVisProdukter() {
 
     // HER ER DØRMANDEN
     alleProdukter = data.filter((produkt) => {
-      return (
-        produkt.category && produkt.category.toLowerCase() !== "accessories"
-      );
+      return produkt.category && produkt.category.toLowerCase() !== "accessories";
     });
 
     // Vis produkterne (nu UDEN accessories) som det første
@@ -76,9 +71,9 @@ function visProdukter(produkter) {
             ${billedeIndhold}
           </a>
           
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="heart-icon">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-          </svg>
+          <svg data-save-id="${produkt.id}" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="heart-icon">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+</svg>
         </div>
         
         <div class="product-text-box">
@@ -94,6 +89,34 @@ function visProdukter(produkter) {
       </div>
     `;
     container.innerHTML += produktHTML;
+  });
+  // ==========================================================
+  // GEMTE: Gør hjerterne klikbare
+  // ==========================================================
+  document.querySelectorAll(".heart-icon").forEach((heart) => {
+    heart.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const id = heart.dataset.saveId;
+
+      const product = produkter.find((p) => String(p.id) === String(id));
+
+      if (!product) return;
+
+      const basisUrl = `${minSupabaseUrl}/storage/v1/object/public/RangImages/`;
+
+      addToSaved({
+        id: product.id,
+        name: product.navn,
+        price: product.price,
+        size: product.size,
+        color: product.color,
+        image: product.image ? basisUrl + product.image : "",
+      });
+
+      heart.classList.toggle("liked");
+    });
   });
 }
 
@@ -119,16 +142,12 @@ function opsætFiltrering() {
         visProdukter(alleProdukter);
       } else {
         const filtreredeProdukter = alleProdukter.filter((produkt) => {
-          return (
-            produkt.category &&
-            produkt.category.toLowerCase() === valgtKategori.toLowerCase()
-          );
+          return produkt.category && produkt.category.toLowerCase() === valgtKategori.toLowerCase();
         });
 
         // Tjek om kategorien er tom
         if (filtreredeProdukter.length === 0) {
-          document.getElementById("produkt-container").innerHTML =
-            `<h2 style='text-align:center; grid-column: 1/-1; padding: 50px;'>📭 Der er ikke uploadet nogen produkter i denne kategori endnu.</h2>`;
+          document.getElementById("produkt-container").innerHTML = `<h2 style='text-align:center; grid-column: 1/-1; padding: 50px;'>📭 Der er ikke uploadet nogen produkter i denne kategori endnu.</h2>`;
         } else {
           visProdukter(filtreredeProdukter);
         }

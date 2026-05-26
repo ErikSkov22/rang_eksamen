@@ -207,6 +207,174 @@ body {
   font-size: 0.9rem;
 }
 
+/* Mørk overlay bag panel */
+.panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 9998;
+}
+
+.panel-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Selve slide-in panelet */
+.slide-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(420px, 90vw);
+  height: 100vh;
+  background: #f4f5f0;
+  z-index: 9999;
+  padding: 4rem 2rem 2rem;
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  overflow-y: auto;
+}
+
+.slide-panel.is-open {
+  transform: translateX(0);
+}
+
+.slide-panel h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Lalezar", sans-serif;
+  font-size: 2rem;
+}
+
+.panel-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.double-line {
+  border-top: 1px solid #292929;
+  border-bottom: 1px solid #292929;
+  height: 8px;
+  margin: 0 auto 2rem;
+  width: 70%;
+}
+
+.panel-product {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel-product-img {
+  width: 100px;
+  height: 130px;
+  background: #d9d9d9;
+}
+
+.panel-product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.panel-product-info p {
+  margin: 0 0 0.4rem;
+}
+
+.panel-product-info button {
+  display: block;
+  margin-top: 0.5rem;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.panel-product-info button:last-child {
+  background: #a1292b;
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+}
+
+.panel-total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #292929;
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+.panel-main-btn,
+.login-form button {
+  width: 100%;
+  background: #a1292b;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.login-form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.login-form label {
+  font-family: "Lalezar", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.login-form input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #a1292b;
+  padding: 0.7rem 0;
+}
+
+/* ==========================================================
+HJERTE IKON
+========================================================== */
+
+.heart-icon {
+  cursor: pointer;
+  fill: transparent;
+  transition: 0.2s ease;
+}
+
+/* Når produktet er gemt */
+.heart-icon.liked {
+  fill: var(--red);
+  stroke: var(--red);
+}
+/* ==========================================================
+LOGIN
+========================================================== */
+.login-error {
+  color: #a1292b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.create-profile-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #2a2929;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 /* ===========================================
  DESKTOP VERSION (Fra 768px og op) 
 =========================================== */
