@@ -41,9 +41,7 @@
 
 /* Den aktive knap (som 'RINGE' på dit billede) */
 .filter-btn.active {
-  color: var(
-    --red
-  ); /* Skift evt. ud med den præcise røde farvekode, f.eks. #9a3324, hvis --red ikke findes */
+  color: var(--red); /* Skift evt. ud med den præcise røde farvekode, f.eks. #9a3324, hvis --red ikke findes */
 }
 
 /* Kassen produkterne ligger i */
@@ -79,7 +77,6 @@
 
 .heart-icon :hover {
   color: var(--red);
-  fill: transparent;
 }
 /* Tekstområdet under billedet */
 .product-text-box {
