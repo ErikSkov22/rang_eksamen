@@ -35,6 +35,17 @@
                 <div class="nav-left">
                     <a href="smykker.html">Smykker</a>
                     <a href="accessories.html" style="color: var(--red);">Accessories</a>
+
+            <a href="index.html" class="nav-logo">
+                <img src="photos/rangLogo.svg" alt="Logo" class="logo-img">
+            </a>
+
+            <button class="burger-btn">=</button>
+
+            <div class="nav-menu">
+                <div class="nav-left">
+                    <a href="smykker.html">Smykker</a>
+                    <a href="accessories.html">Accessories</a>
                     <a href="Om.html">Om</a>
                     <a href="kontakt.html">Kontakt</a>
                 </div>
@@ -43,6 +54,9 @@
                     <a href="#">Log ind</a>
                     <a href="#">Gemt</a>
                     <a href="#">Kurv</a>
+                    <a href="#" data-panel-open="login">Log ind</a>
+                    <a href="#" data-panel-open="saved">Gemt (<span id="savedCount">0</span>)</a>
+                    <a href="#" data-panel-open="cart">Kurv (<span id="cartCount">0</span>)</a>
                 </div>
             </div>
 
@@ -82,6 +96,65 @@
     <script src="JS/navigation.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
     <script src="JS/accessories.js" defer></script>
+    <!-- SLIDE-IN: KURV -->
+    <aside id="cartPanel" class="slide-panel">
+        <button class="panel-close">×</button>
+
+        <h2>Kurv</h2>
+        <div class="double-line"></div>
+
+        <div id="cartItems" class="panel-items">
+            <p>Din kurv er tom.</p>
+        </div>
+
+        <div class="panel-total">
+            <span>Samlet beløb</span>
+            <span id="cartTotal">0 DKK</span>
+        </div>
+
+        <button class="panel-main-btn">FORTSÆT</button>
+    </aside>
+
+    <!-- SLIDE-IN: GEMTE -->
+    <aside id="savedPanel" class="slide-panel">
+        <button class="panel-close">×</button>
+
+        <h2>Gemte</h2>
+        <div class="double-line"></div>
+
+        <div id="savedItems" class="panel-items">
+            <p>Du har ingen gemte produkter.</p>
+        </div>
+    </aside>
+
+    <!-- SLIDE-IN: LOG IND -->
+    <aside id="loginPanel" class="slide-panel">
+        <button class="panel-close">×</button>
+
+        <h2>Log ind</h2>
+        <div class="double-line"></div>
+
+        <form class="login-form" id="loginForm">
+            <label>E-mail</label>
+            <input type="email" id="loginEmail">
+
+            <label>Adgangskode</label>
+            <input type="password" id="loginPassword">
+
+            <p id="loginError" class="login-error"></p>
+
+            <button type="submit">LOG IND</button>
+
+            <a href="#" class="create-profile-link">Lav profil</a>
+        </form>
+    </aside>
+    <div id="panelOverlay" class="panel-overlay"></div>
+
+
+    <!-- JS -->
+    <script src="js/navigation.js"></script>
+    <script src="js/slidepanels.js"></script>
+
 </body>
 
 </html>
