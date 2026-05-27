@@ -1,6 +1,4 @@
-/* ===========================================
- FORSIDE FOTOS (Hero Billeder)
-=========================================== */
+/* Hero */
 .forsidefotos {
   display: flex;
   flex-direction: column-reverse;
@@ -22,14 +20,16 @@
   object-fit: cover;
   display: block;
 }
+
 .overlay-title-box {
   display: flex;
-  gap: 5px;
+  gap: var(--space-xs);
   position: absolute;
-  bottom: 60px;
+  bottom: var(--space-xlarge);
   width: 100%;
   justify-content: center;
 }
+
 .overlay-title {
   color: var(--red);
   font-family: var(--lalezar-font);
@@ -39,7 +39,7 @@
 
 .overlay-link {
   position: absolute;
-  bottom: 25px;
+  bottom: var(--space-medium);
   width: 100%;
   text-align: center;
   color: var(--red);
@@ -48,14 +48,16 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   text-decoration: underline;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  padding-block: 2rem;
-  margin-bottom: -2rem;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0)
+  );
+  padding-block: var(--space-large);
+  margin-bottom: calc(var(--space-large) * -1);
 }
 
-/* ===========================================
-  VIDEO SEKTION
-=========================================== */
+/* Video */
 .video-sektion {
   display: flex;
   flex-direction: column;
@@ -63,7 +65,7 @@
   justify-content: center;
   width: 100%;
   position: relative;
-  padding: 80px 20px;
+  padding: var(--space-xlarge) var(--space-medium);
   box-sizing: border-box;
 }
 
@@ -74,33 +76,28 @@
   display: block;
 }
 
-/* ===========================================
-  TEKST OVER VIDEO
-=========================================== */
 .tekstovervideo {
   display: flex;
-  flex-wrap: wrap; /* Lader teksten hoppe ned på næste linje på mobil */
-  gap: 15px; /* Mindre afstand mellem ordene på mobil */
-  font-size: 2rem; /* Mindre tekst på mobil */
-  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: var(--space-small);
+  font-size: 2rem;
+  margin-bottom: var(--space-large);
   align-items: center;
   justify-content: center;
   width: 100%;
   text-align: center;
 }
 
-/* ===========================================
-  BILLEDE & TEKST SPLIT (Rød boks)
-=========================================== */
+/* Split (Rød Boks) */
 .billedeogtekst {
   display: flex;
-  flex-direction: column; /* Stabler billedet og den røde boks oven på hinanden */
+  flex-direction: column;
   width: 100%;
 }
 
 .baernoget {
   width: 100%;
-  height: 55vh; /* Billedet fylder lidt over halvdelen af skærmen på mobil */
+  height: 55vh;
 }
 
 .baernoget img {
@@ -116,8 +113,8 @@
   color: var(--white);
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrerer teksten lodret i boksen */
-  padding: 60px 40px;
+  justify-content: center;
+  padding: var(--space-xlarge) var(--space-large);
   box-sizing: border-box;
 }
 
@@ -133,16 +130,14 @@
   font-family: var(--caveat-font);
   font-size: 2.2rem;
   margin: 0;
-  margin-top: -5px;
+  margin-top: calc(var(--space-xs) * -1);
   color: var(--white);
 }
 
-/* ===========================================
-  NEW RELEASES / PRODUKT GRID
-=========================================== */
+/* New Releases */
 .new-releases-section {
   width: 80%;
-  padding: 60px 20px;
+  padding: var(--space-xlarge) var(--space-medium);
   box-sizing: border-box;
   place-self: center;
 }
@@ -152,8 +147,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: baseline;
-  gap: 15px;
-  margin-bottom: 40px;
+  gap: var(--space-small);
+  margin-bottom: var(--space-large);
 }
 
 .header-cursive {
@@ -170,19 +165,17 @@
   text-transform: uppercase;
   margin: 0;
 }
-/* ===========================================
-forside produkter i bunden 
-=========================================== */
+
 .front-slider-wrapper {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: var(--space-medium);
 }
 
 .front-product-slider {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  gap: var(--space-large);
   width: 100%;
 }
 
@@ -197,8 +190,9 @@ forside produkter i bunden
   justify-content: space-between;
   font-family: var(--inter-font);
   text-transform: uppercase;
-  margin-top: 0.5rem;
+  margin-top: var(--space-xs);
 }
+
 .front-product-text a {
   text-decoration: none;
   font-size: 1.5rem;
@@ -215,23 +209,17 @@ forside produkter i bunden
 .all-jewelry-link {
   display: block;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: var(--space-large);
   font-family: var(--lalezar-font);
   color: var(--black);
   text-decoration: underline;
 }
 
-/* ===========================================
-   --- DESKTOP VERSION (Fra 768px og op) ---
-=========================================== */
-
 @media (min-width: 768px) {
-  /* Forside Fotos */
   .forsidefotos {
     flex-direction: row;
     height: 98vh;
   }
-
   .foto-box {
     flex: 1;
     height: 100%;
@@ -239,58 +227,49 @@ forside produkter i bunden
 
   .overlay-title {
     font-size: 5rem;
-    bottom: 80px;
+    bottom: var(--space-xlarge);
     letter-spacing: -7px;
   }
   .overlay-title-box {
-    gap: 20px;
+    gap: var(--space-medium);
   }
-
   .overlay-link {
     font-size: 1rem;
-    bottom: 30px;
+    bottom: var(--space-large);
   }
-  /* Tekst Over Video  */
+
   .tekstovervideo {
-    flex-wrap: nowrap; /* Tvinger dem til at blive på én lang linje igen */
-    gap: 150px; /* Det store lækre mellemrum! */
+    flex-wrap: nowrap;
+    gap: var(--space-xxxlarge);
     font-size: 3rem;
   }
 
-  /* Billede & Tekst Split  */
   .billedeogtekst {
     flex-direction: row;
     height: 70vh;
   }
-
   .baernoget {
     flex: 4;
     height: 100%;
   }
-
   .splittekst {
     flex: 6;
     height: 100%;
   }
-
   .split-title {
     font-size: 9rem;
   }
-
   .split-subtitle {
     font-size: 3rem;
   }
 
-  /* New Releases / Produkt Grid  */
   .new-releases-header {
-    margin-bottom: 60px;
+    margin-bottom: var(--space-xlarge);
   }
-
   .header-cursive {
     font-size: 4.3rem;
-    margin-right: 2rem;
+    margin-right: var(--space-large);
   }
-
   .header-bold {
     font-size: 2rem;
   }

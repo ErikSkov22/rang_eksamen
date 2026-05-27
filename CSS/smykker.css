@@ -1,24 +1,16 @@
-/* ===========================================
-   SMYKKER SIDE SPECIFIK CSS
-=========================================== */
-
-/* Overskrift på siden */
 .page-title {
   text-align: center;
   font-size: 4rem;
-  margin-top: 190px;
+  margin-top: var(--space-xxxlarge);
   text-transform: uppercase;
 }
 
-/* ===========================================
-   FILTRERINGSMENU
-=========================================== */
 .filter-menu {
   display: flex;
   justify-content: center;
-  gap: 40px; /* Afstanden mellem knapperne */
-  margin-bottom: 50px;
-  flex-wrap: wrap; /* Gør at de rykker ned på en ny linje på små skærme */
+  gap: var(--space-large);
+  margin-bottom: var(--space-large);
+  flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -34,25 +26,18 @@
   transition: color 0.2s ease;
 }
 
-/* Når man holder musen over */
-.filter-btn:hover {
-  color: var(--red); /* Forudsætter du har en --red i din global.css */
-}
-
-/* Den aktive knap (som 'RINGE' på dit billede) */
+.filter-btn:hover,
 .filter-btn.active {
   color: var(--red);
 }
 
-/* Kassen produkterne ligger i */
 .page-container {
-  padding: 20px;
+  padding: var(--space-medium);
   min-height: 50vh;
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin-bottom: var(--space-large);
+  margin-top: var(--space-large);
 }
 
-/* Billedboksen (rammen om billedet) */
 .product-image-box {
   position: relative;
   width: 100%;
@@ -61,31 +46,22 @@
   overflow: hidden;
 }
 
-/* Det rigtige billede */
 .product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Hjerteikonet i hjørnet */
 .heart-icon {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  cursor: pointer;
-  color: var(--black);
+  top: var(--space-small);
+  right: var(--space-small);
 }
 
-.heart-icon:hover {
-  color: var(--red);
-}
-
-/* Tekstområdet under billedet */
 .product-text-box {
   display: flex;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: var(--space-small);
   font-family: var(--lalezar-font), sans-serif;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -93,14 +69,12 @@
   color: var(--black);
 }
 
-/* Venstre side af tekstområdet (Navn og Str) */
 .product-text-left {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-xs);
 }
 
-/* Linket på produktnavnet */
 .product-link-clean {
   text-decoration: none;
   color: inherit;
@@ -108,13 +82,7 @@
   font-size: inherit;
 }
 
-.section-divider {
-  margin-top: 2.5rem;
-}
-
-/* ===========================================
-   HOVER EFFEKT PÅ PRODUKTBILLEDER
-=========================================== */
+/* HOVER EFFEKT */
 .product-image-box a {
   position: relative;
   display: block;
@@ -122,67 +90,48 @@
   height: 100%;
 }
 
-.product-image-box .main-img {
+.product-image-box .main-img,
+.product-image-box .hover-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: opacity 0.4s ease;
 }
 
-/* Hover-billedet (fra image3) ligger skjult ovenpå */
 .product-image-box .hover-img {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
-/* Fader det primære ud, og fader modelbilledet ind ved hover */
 .product-image-box:hover .main-img {
   opacity: 0;
 }
-
 .product-image-box:hover .hover-img {
   opacity: 1;
 }
 
-/* ===========================================
-   TEKST & BESKEDER (Flyttet fra JavaScript)
-=========================================== */
-/* Størrelses-teksten under produktnavnet */
 .product-size {
   font-family: var(--inter-font);
   font-size: 0.9rem;
   font-weight: normal;
   text-transform: none;
   color: var(--black);
-  margin-top: 4px;
+  margin-top: var(--space-xs);
 }
 
-/* Centreret besked, f.eks. "Fandt ingen produkter" */
 .empty-msg {
   text-align: center;
-  padding: 50px;
-  grid-column: 1 / -1; /* Får beskeden til at fylde hele bredden i griddet */
+  padding: var(--space-large);
+  grid-column: 1 / -1;
 }
 
-/* Rød tekst til database fejl */
 .error-msg {
   color: var(--red);
 }
 
-/**/
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-/* Egne billeder */
+/* EDITORIAL GRID */
 .editorial-img img {
   width: 100%;
   height: 100%;
@@ -200,14 +149,12 @@
   object-fit: cover;
 }
 
-/* Hvis der er 4 produkter eller mindre */
 .product-grid.layout-small .editorial-big {
   grid-column: 1 / -1;
-  margin-top: 2rem;
+  margin-top: var(--space-large);
   aspect-ratio: 16 / 9;
 }
 
-/* Hvis der er 10 produkter */
 .product-grid.layout-full .editorial-large {
   grid-column: 1 / 3;
   grid-row: 2 / 4;
@@ -221,18 +168,14 @@
 
 .product-grid.layout-full .editorial-small {
   grid-column: 3 / 5;
-}
-
-.product-grid.layout-full .editorial-small {
   aspect-ratio: 16 / 9;
 }
 
-/* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: var(--space-large);
+  margin: var(--space-xlarge) 0;
   font-family: var(--lalezar-font);
   font-size: 1.5rem;
 }
@@ -245,12 +188,7 @@
   cursor: pointer;
 }
 
-/* Mobil */
 @media (max-width: 700px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .product-grid.layout-full .editorial-large,
   .product-grid.layout-full .editorial-small,
   .product-grid.layout-small .editorial-big {
