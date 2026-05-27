@@ -48,11 +48,7 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   text-decoration: underline;
-  background-image: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0)
-  );
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
   padding-block: var(--space-large);
   margin-bottom: calc(var(--space-large) * -1);
 }
@@ -160,7 +156,7 @@
 
 .header-bold {
   font-family: var(--lalezar-font);
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--red);
   text-transform: uppercase;
   margin: 0;
@@ -187,15 +183,18 @@
 
 .front-product-text {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   font-family: var(--inter-font);
   text-transform: uppercase;
   margin-top: var(--space-xs);
+  font-size: 0.8rem;
 }
-
+.product-link {
+  font-size: 0.8rem;
+}
 .front-product-text a {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
 }
 
 .front-slider-btn {
@@ -276,5 +275,21 @@
 
   .front-product-slider {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .front-product-text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .front-product-text a {
+    font-size: 1.5rem;
+  }
+
+  .front-product-text {
+    font-size: 1.5rem;
+  }
+  .product-link {
+    font-size: 1rem;
   }
 }

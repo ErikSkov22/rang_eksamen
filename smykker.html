@@ -59,7 +59,51 @@
             <button class="filter-btn" data-category="halskæde">HALSKÆDER</button>
         </div>
         <div class="section-divider"></div>
+        <div class="sort-container">
 
+            <button id="sortToggle" class="sort-toggle">
+                SORTER +
+            </button>
+
+            <div id="sortContent" class="sort-content">
+
+                <label>
+                    <input type="radio" name="sort" value="none" checked>
+                    Ingen
+                </label>
+
+                <label>
+                    <input type="radio" name="sort" value="price-asc">
+                    Pris stigende
+                </label>
+
+                <label>
+                    <input type="radio" name="sort" value="price-desc">
+                    Pris faldende
+                </label>
+
+                <label>
+                    <input type="radio" name="sort" value="az">
+                    A-Å
+                </label>
+
+                <label>
+                    <input type="radio" name="sort" value="za">
+                    Å-A
+                </label>
+
+                <label>
+                    <input type="radio" name="sort" value="size-asc">
+                    Størrelse stigende
+                </label>
+
+                <label>
+                    <input type="radio" name="sort" value="size-desc">
+                    Størrelse faldende
+                </label>
+
+            </div>
+        </div>
         <div id="produkt-container" class="product-grid page-container">
         </div>
 

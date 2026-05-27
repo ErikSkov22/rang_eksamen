@@ -61,6 +61,12 @@
 .singleproduct-info {
   margin-bottom: var(--space-small);
 }
+.product-description #single-navn {
+  place-self: center;
+}
+.product-description .price {
+  place-self: center;
+}
 
 details {
   border-bottom: 1px solid var(--red);
@@ -122,7 +128,7 @@ section.others > h1 {
 
 .similar-product-text {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-top: var(--space-small);
   font-family: var(--lalezar-font);
   text-transform: uppercase;
@@ -145,7 +151,7 @@ section.others > h1 {
   }
 
   .product-description {
-    padding: var(--space-xxxlarge) var(--space-large) 0 0;
+    padding: var(--space-xxxlarge) var(--space-xxxlarge) 0 var(--space-xxxlarge);
     border-top: none;
   }
 
@@ -192,5 +198,12 @@ section.others > h1 {
 
   .others .product-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+  .similar-product-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: 1.2rem;
   }
 }
