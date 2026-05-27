@@ -212,7 +212,6 @@ body {
   position: fixed;
   inset: 0;
   background: var(--black);
-
   opacity: 0;
   pointer-events: none;
   transition: 0.3s ease;

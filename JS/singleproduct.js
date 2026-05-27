@@ -3,11 +3,9 @@
 // ==========================================================
 const minSupabaseUrl = "https://ljpgrgbwtefiivfpynkf.supabase.co";
 const minSupabaseKey = "sb_publishable_ZBHtBc88hjDkz95dcCUMyQ_rXmo4XkF";
-const minSupabase = window.supabase.createClient(
-  minSupabaseUrl,
-  minSupabaseKey,
-);
+const minSupabase = window.supabase.createClient(minSupabaseUrl, minSupabaseKey);
 
+let currentProduct = null;
 // ==========================================================
 // 2. HENT OG VIS DET ENKELTE PRODUKT
 // ==========================================================
@@ -21,30 +19,23 @@ async function hentSingleProdukt() {
   }
 
   try {
-    const { data, error } = await minSupabase
-      .from("Products")
-      .select("*")
-      .eq("id", produktId)
-      .single();
+    const { data, error } = await minSupabase.from("Products").select("*").eq("id", produktId).single();
 
     if (error) throw error;
+    currentProduct = data;
 
     // Sæt de grundlæggende tekster ind
     document.getElementById("single-navn").innerText = data.navn;
     document.getElementById("single-pris").innerText = data.price + " DKK";
-    document.getElementById("single-size").innerText =
-      "STR. " + (data.size || "Varierer");
+    document.getElementById("single-size").innerText = "STR. " + (data.size || "Varierer");
 
     // Sæt tekster ind i harmonika-menuen (Beskrivelse, Size Guide, Pleje)
-    document.getElementById("single-desc").innerText =
-      data.description || "Ingen beskrivelse tilgængelig.";
+    document.getElementById("single-desc").innerText = data.description || "Ingen beskrivelse tilgængelig.";
 
     // HER ER RETTELSEN: Vi bruger ["sizing guide"] fordi der er mellemrum i navnet
-    document.getElementById("single-size-guide").innerText =
-      data["sizing guide"] || "Ingen størrelsesguide tilgængelig.";
+    document.getElementById("single-size-guide").innerText = data["sizing guide"] || "Ingen størrelsesguide tilgængelig.";
 
-    document.getElementById("single-care").innerText =
-      data.care || "Ingen plejevejledning tilgængelig.";
+    document.getElementById("single-care").innerText = data.care || "Ingen plejevejledning tilgængelig.";
 
     // Byg op til 4 billeder dynamisk
     let billederHTML = "";
@@ -64,13 +55,32 @@ async function hentSingleProdukt() {
     }
 
     // Indsæt billederne i containeren
-    document.getElementById("single-billede-container").innerHTML =
-      billederHTML;
+    document.getElementById("single-billede-container").innerHTML = billederHTML;
   } catch (fejl) {
     console.error("Fejl ved hentning af produkt:", fejl);
-    document.getElementById("single-navn").innerText =
-      "Kunne ikke finde produktet.";
+    document.getElementById("single-navn").innerText = "Kunne ikke finde produktet.";
   }
+}
+// ==========================================================
+// 3. TILFØJ TIL KURV
+// ==========================================================
+const addToCartBtn = document.querySelector("#addToCartBtn");
+
+if (addToCartBtn) {
+  addToCartBtn.addEventListener("click", () => {
+    if (!currentProduct) return;
+
+    const basisUrl = `${minSupabaseUrl}/storage/v1/object/public/RangImages/`;
+
+    addToCart({
+      id: currentProduct.id,
+      name: currentProduct.navn,
+      price: currentProduct.price,
+      size: currentProduct.size,
+      color: currentProduct.color,
+      image: currentProduct.image ? basisUrl + currentProduct.image : "",
+    });
+  });
 }
 
 hentSingleProdukt();
