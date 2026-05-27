@@ -26,6 +26,14 @@ main {
   padding: 12px 0;
 }
 
+.sectionFAQ details div {
+  margin-block: 20px;
+  font-family: var(--inter-font);
+}
+.sectionFAQ details ul {
+  margin-block: 10px;
+}
+
 .sectionFAQ summary {
   list-style: none;
   cursor: pointer;
@@ -182,7 +190,7 @@ main {
 
   .sectionFirst > p:first-of-type {
     font-size: 26px;
-    max-width: 900px;
+    max-width: 480px;
   }
 
   .sectionFirst > p:last-of-type {

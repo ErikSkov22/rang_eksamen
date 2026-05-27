@@ -3,10 +3,7 @@
 // ==========================================================
 const minSupabaseUrl = "https://ljpgrgbwtefiivfpynkf.supabase.co";
 const minSupabaseKey = "sb_publishable_ZBHtBc88hjDkz95dcCUMyQ_rXmo4XkF";
-const minSupabase = window.supabase.createClient(
-  minSupabaseUrl,
-  minSupabaseKey,
-);
+const minSupabase = window.supabase.createClient(minSupabaseUrl, minSupabaseKey);
 
 // ==========================================================
 // 2. HENT OG VIS ACCESSORIES
@@ -14,24 +11,23 @@ const minSupabase = window.supabase.createClient(
 async function hentAccessories() {
   const container = document.getElementById("produkt-liste");
   container.innerHTML = "<p class='empty-msg'>Indlæser accessories...</p>";
-
+  container.classList.add("layout-small");
   try {
-    const { data, error } = await minSupabase
-      .from("Products")
-      .select("*")
-      .eq("category", "Accessories");
+    const { data, error } = await minSupabase.from("Products").select("*").eq("category", "Accessories");
 
     if (error) throw error;
 
     if (data.length === 0) {
-      container.innerHTML =
-        "<p class='empty-msg'>Der er ingen accessories på lager i øjeblikket.</p>";
+      container.innerHTML = "<p class='empty-msg'>Der er ingen accessories på lager i øjeblikket.</p>";
       return;
     }
 
     container.innerHTML = "";
 
-    data.forEach((produkt) => {
+    // data.forEach((produkt) => {
+    const accessoriesPåSide = data.slice(0, 10);
+
+    accessoriesPåSide.forEach((produkt, index) => {
       let billedeIndhold = `<div class="product-placeholder"></div>`;
 
       if (produkt.image) {
@@ -48,10 +44,7 @@ async function hentAccessories() {
         if (produkt.image3) tilgaengeligeModeller.push(produkt.image3);
 
         if (tilgaengeligeModeller.length > 0) {
-          const randomModel =
-            tilgaengeligeModeller[
-              Math.floor(Math.random() * tilgaengeligeModeller.length)
-            ];
+          const randomModel = tilgaengeligeModeller[Math.floor(Math.random() * tilgaengeligeModeller.length)];
           const hoverUrl = `${minSupabaseUrl}/storage/v1/object/public/RangImages/${randomModel}`;
 
           billedeIndhold += `<img src="${hoverUrl}" alt="${produkt.navn} på model" class="product-image hover-img">`;
@@ -60,10 +53,7 @@ async function hentAccessories() {
         }
       }
 
-      const displaySize =
-        produkt.size && produkt.size !== "null" && produkt.size !== ""
-          ? produkt.size
-          : "One-size";
+      const displaySize = produkt.size && produkt.size !== "null" && produkt.size !== "" ? produkt.size : "One-size";
 
       const html = `
         <div class="product-item">
@@ -92,10 +82,19 @@ async function hentAccessories() {
       `;
 
       container.innerHTML += html;
+
+      // Efter de første 4 produkter indsætter vi det store styling-billede
+      if (index === 3) {
+        container.innerHTML += `
+    <div class="editorial-img editorial-accessories-big">
+      <img src="photos/bigSilverClose.webp" alt="Accessories styling">
+    </div>
+  `;
+      }
     });
 
     // ==========================================================
-    // 3. GEMTE: Gør hjerterne klikbare
+    // GEMTE: Gør hjerterne klikbare
     // ==========================================================
     document.querySelectorAll(".heart-icon").forEach((heart) => {
       heart.addEventListener("click", (e) => {
@@ -123,8 +122,7 @@ async function hentAccessories() {
     });
   } catch (fejl) {
     console.error("Fejl ved hentning af accessories:", fejl);
-    container.innerHTML =
-      "<p class='empty-msg error-msg'>Der opstod en fejl. Kunne ikke hente produkterne.</p>";
+    container.innerHTML = "<p class='empty-msg error-msg'>Der opstod en fejl. Kunne ikke hente produkterne.</p>";
   }
 }
 
