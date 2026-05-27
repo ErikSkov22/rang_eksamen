@@ -4,35 +4,24 @@ h1 {
 }
 
 .news-box {
-  margin-top: 180px;
+  margin-top: var(--space-xxxlarge);
 }
-/* 
-.news-links {
-  display: flex;
-  justify-self: center;
-  gap: 20px;
-  text-transform: uppercase;
-}
-
-.news-links a {
-  text-decoration: none;
-} */
 
 .newsletter {
   border-top: 1px solid var(--black);
-  padding: 32px 24px;
+  padding: var(--space-large) var(--space-medium);
 }
 
 .newsletter form {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-small);
   flex-wrap: wrap;
 }
 
 .newsletter label {
   font-family: var(--lalezar-font);
-  font-size: 20px;
+  font-size: var(--space-medium);
   color: var(--black);
 }
 
@@ -40,9 +29,9 @@ h1 {
   border: none;
   border-bottom: 3px solid var(--black);
   background: transparent;
-  font-size: 20px;
+  font-size: var(--space-medium);
   font-weight: bold;
-  padding: 4px 0;
+  padding: var(--space-xs) 0;
   width: 250px;
   outline: none;
   color: var(--black);
@@ -50,10 +39,6 @@ h1 {
 
 .newsletter input::placeholder {
   color: #888;
-  font-size: 14px;
-}
-
-.newsletter input {
   font-size: 14px;
 }
 

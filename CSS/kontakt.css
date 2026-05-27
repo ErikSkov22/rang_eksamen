@@ -1,71 +1,18 @@
-/* FJERNET margin-top fra main, så griddet starter helt i toppen af skærmen */
 main {
   margin-top: 0;
 }
 
-/*FAQ*/
 .sectionFirst {
-  padding: 180px 24px 80px;
+  padding: var(--space-xxxlarge) var(--space-medium) var(--space-xlarge);
 }
 
 .sectionFirst h1 {
   font-family: var(--lalezar-font);
-  font-size: 40px;
+  font-size: var(--space-large);
   text-transform: uppercase;
   line-height: 1;
   color: var(--black);
-  margin-bottom: 40px;
-}
-
-.sectionFAQ {
-  margin-bottom: 120px;
-}
-
-.sectionFAQ details {
-  border-bottom: 2px solid var(--red);
-  padding: 12px 0;
-}
-
-.sectionFAQ details div {
-  margin-block: 20px;
-  font-family: var(--inter-font);
-}
-.sectionFAQ details ul {
-  margin-block: 10px;
-}
-
-.sectionFAQ summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  font-size: 20px;
-  color: var(--black);
-}
-
-.sectionFAQ summary::-webkit-details-marker {
-  display: none;
-}
-
-.sectionFAQ summary::after {
-  content: "+";
-  font-size: 24px;
-  padding-right: 20px;
-}
-
-.sectionFAQ details[open] summary::after {
-  content: "-";
-  padding-right: 20px;
-}
-
-.sectionFAQ .content {
-  padding-top: 14px;
-  padding-bottom: 10px;
-  line-height: 1.5;
-  font-size: 15px;
-  color: var(--black);
+  margin-bottom: var(--space-large);
 }
 
 .sectionFirst > p {
@@ -77,7 +24,7 @@ main {
   font-size: 18px;
   line-height: 1.4;
   max-width: 500px;
-  margin: 0 auto 30px;
+  margin: 0 auto var(--space-large);
 }
 
 .sectionFirst > p:last-of-type {
@@ -85,17 +32,68 @@ main {
   line-height: 1;
 }
 
-/*form*/
+.sectionFAQ {
+  margin-bottom: var(--space-xxlarge);
+}
+
+.sectionFAQ details {
+  border-bottom: 2px solid var(--red);
+  padding: var(--space-small) 0;
+}
+
+.sectionFAQ details div {
+  margin-block: var(--space-medium);
+  font-family: var(--inter-font);
+}
+
+.sectionFAQ details ul {
+  margin-block: var(--space-small);
+}
+
+.sectionFAQ summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--space-medium);
+  color: var(--black);
+}
+
+.sectionFAQ summary::-webkit-details-marker {
+  display: none;
+}
+
+.sectionFAQ summary::after {
+  content: "+";
+  font-size: 24px;
+  padding-right: var(--space-medium);
+}
+
+.sectionFAQ details[open] summary::after {
+  content: "-";
+  padding-right: var(--space-medium);
+}
+
+.sectionFAQ .content {
+  padding-top: var(--space-small);
+  padding-bottom: var(--space-small);
+  line-height: 1.5;
+  font-size: 15px;
+  color: var(--black);
+}
+
+/* Formular */
 .contact-section {
-  padding: 180px 24px 70px;
+  padding: var(--space-xxxlarge) var(--space-medium) var(--space-xlarge);
 }
 
 .contact-section h1 {
   font-family: var(--lalezar-font);
-  font-size: 40px;
+  font-size: var(--space-large);
   text-align: center;
   color: var(--black);
-  margin-bottom: 20px;
+  margin-bottom: var(--space-medium);
 }
 
 .contact-form {
@@ -105,7 +103,7 @@ main {
 
 .contact-form label {
   font-family: var(--lalezar-font);
-  font-size: 20px;
+  font-size: var(--space-medium);
   color: var(--black);
 }
 
@@ -114,7 +112,7 @@ main {
   border-bottom: 2px solid var(--red);
   background: transparent;
   height: 35px;
-  margin-bottom: 50px;
+  margin-bottom: var(--space-large);
   outline: none;
   font-size: 18px;
 }
@@ -124,10 +122,10 @@ main {
   background: transparent;
   height: 180px;
   resize: none;
-  margin-bottom: 30px;
+  margin-bottom: var(--space-large);
   outline: none;
   font-size: 18px;
-  padding: 10px;
+  padding: var(--space-small);
 }
 
 .contact-form button {
@@ -135,19 +133,16 @@ main {
   background-color: var(--red);
   color: var(--white);
   border: none;
-  padding: 10px 0;
+  padding: var(--space-small) 0;
   font-size: 16px;
   letter-spacing: 1px;
 }
 
-/* ===========================================
-   DESKTOP VERSION (Fra 768px og op)
-=========================================== */
 @media (min-width: 768px) {
   .grid-1-1-kontakt {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: flex-start; /* Stopper billedet fra at vokse sammen med FAQ'en */
+    align-items: flex-start;
     margin-bottom: 0;
   }
 
@@ -156,22 +151,20 @@ main {
     margin-bottom: 0 !important;
   }
 
-  /* Billedet er nu låst til en fast højde */
   .grid-1-1-kontakt img {
     width: 100%;
-    height: 1100px; /* <--- DET ER DETTE TAL, DU KAN JUSTERE, HVIS DET MANGLER ET PAR PIXELS */
+    height: 1100px;
     object-fit: cover;
     display: block;
   }
 
-  /*FAQ*/
   .sectionFirst {
-    padding: 180px 130px 120px;
+    padding: var(--space-xxxlarge) var(--space-xxlarge) var(--space-xxlarge);
   }
 
   .sectionFirst h1 {
-    font-size: 40px;
-    margin-bottom: 50px;
+    font-size: var(--space-large);
+    margin-bottom: var(--space-large);
     letter-spacing: 5px;
   }
 
@@ -181,11 +174,11 @@ main {
 
   .sectionFAQ {
     max-width: 1100px;
-    margin-bottom: 180px;
+    margin-bottom: var(--space-xxxlarge);
   }
 
   .sectionFAQ summary {
-    font-size: 20px;
+    font-size: var(--space-medium);
   }
 
   .sectionFirst > p:first-of-type {
@@ -197,9 +190,8 @@ main {
     font-size: 90px;
   }
 
-  /*form*/
   .contact-section {
-    padding: 180px 80px 90px;
+    padding: var(--space-xxxlarge) var(--space-xlarge) var(--space-xlarge);
   }
 
   .contact-form {
@@ -212,6 +204,6 @@ main {
 
   .contact-form button {
     width: 195px;
-    font-size: 20px;
+    font-size: var(--space-medium);
   }
 }
