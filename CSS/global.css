@@ -141,6 +141,11 @@ summary {
   letter-spacing: 0.5px;
 }
 
+.main-nav a.active-link {
+  color: var(--red);
+  font-weight: 700; /* Gør den evt. lidt tykkere for ekstra markering */
+}
+
 /* ===========================================
  FOOTER
 =========================================== */
