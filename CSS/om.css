@@ -34,36 +34,36 @@
 }
 
 .about-title {
-  font-family: "Lalezar", sans-serif;
+  font-family: var(--lalezar-font);
   font-size: 3.5rem;
   margin: 0 0 var(--space-medium) 0;
-  color: #111;
+  color: var(--black);
   text-transform: uppercase;
   line-height: 1;
 }
 
 .about-heading {
-  font-family: "Lalezar", sans-serif;
+  font-family: var(--lalezar-font);
   font-size: 3rem;
   margin: 0 0 var(--space-small) 0;
-  color: #111;
+  color: var(--black);
   text-transform: uppercase;
   line-height: 1.1;
 }
 
 .about-subheading {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--inter-font);
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0 0 var(--space-medium) 0;
-  color: #111;
+  color: var(--black);
 }
 
 .split-text-wrapper p {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: var(--inter-font);
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #111;
+  color: var(--black);
   margin: 0 0 var(--space-medium) 0;
 }
 
