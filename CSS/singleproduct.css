@@ -25,7 +25,7 @@ h1 {
 .product-imgs div {
   width: 100%;
   aspect-ratio: 4/5;
-  background-color: #f4f4f4;
+  background-color: var(--white);
   overflow: hidden;
 }
 
@@ -136,6 +136,34 @@ section.others > h1 {
   text-align: left;
   margin-bottom: 22px;
 }
+.others .product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.similar-product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.similar-product-text {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-family: var(--lalezar-font);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.similar-product-card .product-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--black);
+  text-decoration: underline;
+}
 
 /* =======================================
    DESKTOP (STOR SKÆRM)
@@ -202,5 +230,9 @@ section.others > h1 {
 
   details {
     border-bottom: 2px solid var(--red);
+  }
+
+  .others .product-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

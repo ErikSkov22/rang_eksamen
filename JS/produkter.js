@@ -3,13 +3,13 @@
 // ==========================================================
 const minSupabaseUrl = "https://ljpgrgbwtefiivfpynkf.supabase.co";
 const minSupabaseKey = "sb_publishable_ZBHtBc88hjDkz95dcCUMyQ_rXmo4XkF";
-const minSupabase = window.supabase.createClient(
-  minSupabaseUrl,
-  minSupabaseKey,
-);
+const minSupabase = window.supabase.createClient(minSupabaseUrl, minSupabaseKey);
 
 let alleProdukter = [];
-
+let visteProdukter = [];
+let currentPage = 1;
+const productsPerPage = 10;
+let currentCategory = "alle";
 // ==========================================================
 // 2. HENT DATA FRA DATABASEN
 // ==========================================================
@@ -22,34 +22,75 @@ async function hentOgVisProdukter() {
 
     if (error) {
       console.error(error);
-      container.innerHTML = `<h2 class="empty-msg error-msg">🚨 FEJL: ${error.message}</h2>`;
+      container.innerHTML = `<h2 class="empty-msg error-msg">FEJL: ${error.message}</h2>`;
       return;
     }
 
     if (!data || data.length === 0) {
-      container.innerHTML = `<h2 class="empty-msg">📭 Fandt ingen produkter.</h2>`;
+      container.innerHTML = `<h2 class="empty-msg">Fandt ingen produkter.</h2>`;
       return;
     }
 
     alleProdukter = data.filter((produkt) => {
-      return (
-        produkt.category && produkt.category.toLowerCase() !== "accessories"
-      );
+      return produkt.category && produkt.category.toLowerCase() !== "accessories";
     });
 
-    visProdukter(alleProdukter);
+    // visProdukter(alleProdukter);
+    visteProdukter = alleProdukter;
+    renderPage();
+
     opsætFiltrering();
   } catch (e) {
     console.error(e);
   }
 }
 
+//** */
+function renderPage() {
+  const start = (currentPage - 1) * productsPerPage;
+  const end = start + productsPerPage;
+
+  const produkterPåSide = visteProdukter.slice(start, end);
+
+  visProdukter(produkterPåSide);
+  updatePagination();
+}
+
+function updatePagination() {
+  const totalPages = Math.ceil(visteProdukter.length / productsPerPage) || 1;
+
+  document.querySelector("#pageInfo").textContent = `${currentPage}/${totalPages}`;
+}
+
+document.querySelector("#prevPageBtn")?.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderPage();
+  }
+});
+
+document.querySelector("#nextPageBtn")?.addEventListener("click", () => {
+  const totalPages = Math.ceil(visteProdukter.length / productsPerPage);
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderPage();
+  }
+});
 // ==========================================================
-// 3. TEGN PRODUKTER PÅ SKÆRMEN
+// TEGN PRODUKTER PÅ SKÆRMEN
 // ==========================================================
 function visProdukter(produkter) {
   const container = document.getElementById("produkt-container");
   container.innerHTML = "";
+
+  container.classList.remove("layout-small", "layout-full");
+
+  if (produkter.length <= 4) {
+    container.classList.add("layout-small");
+  } else if (produkter.length === 10) {
+    container.classList.add("layout-full");
+  }
 
   produkter.forEach((produkt) => {
     let billedeIndhold = `<div class="product-placeholder"></div>`;
@@ -68,10 +109,7 @@ function visProdukter(produkter) {
       if (produkt.image3) tilgaengeligeModeller.push(produkt.image3);
 
       if (tilgaengeligeModeller.length > 0) {
-        const randomModel =
-          tilgaengeligeModeller[
-            Math.floor(Math.random() * tilgaengeligeModeller.length)
-          ];
+        const randomModel = tilgaengeligeModeller[Math.floor(Math.random() * tilgaengeligeModeller.length)];
         const hoverUrl = `${minSupabaseUrl}/storage/v1/object/public/RangImages/${randomModel}`;
 
         billedeIndhold += `<img src="${hoverUrl}" alt="${produkt.navn} på model" class="product-image hover-img">`;
@@ -107,7 +145,28 @@ function visProdukter(produkter) {
     `;
     container.innerHTML += produktHTML;
   });
+  // ==========================================================
+  // EGNE BILLEDER I GRID
+  // ==========================================================
+  if (produkter.length <= 4) {
+    container.innerHTML += `
+    <div class="editorial-img editorial-big">
+      <img src="photos/necklaceBig.webp" alt="Styling billede">
+    </div>
+  `;
+  }
 
+  if (produkter.length === 10) {
+    container.innerHTML += `
+    <div class="editorial-img editorial-large">
+      <img src="photos/hole1Style.webp" alt="Styling billede">
+    </div>
+
+    <div class="editorial-img editorial-small">
+      <img src="photos/RingBig2.webp" alt="Detail billede">
+    </div>
+  `;
+  }
   // Gør hjerterne klikbare
   document.querySelectorAll(".heart-icon").forEach((heart) => {
     heart.addEventListener("click", (e) => {
@@ -134,7 +193,7 @@ function visProdukter(produkter) {
 }
 
 // ==========================================================
-// 4. HÅNDTER KATEGORI-FILTRERING
+// HÅNDTER KATEGORI-FILTRERING
 // ==========================================================
 function opsætFiltrering() {
   const knapper = document.querySelectorAll(".filter-btn");
@@ -146,20 +205,22 @@ function opsætFiltrering() {
       const valgtKategori = knap.getAttribute("data-category");
 
       if (valgtKategori === "alle") {
-        visProdukter(alleProdukter);
+        // visProdukter(alleProdukter);
+        visteProdukter = alleProdukter;
+        currentPage = 1;
+        renderPage();
       } else {
         const filtreredeProdukter = alleProdukter.filter((produkt) => {
-          return (
-            produkt.category &&
-            produkt.category.toLowerCase() === valgtKategori.toLowerCase()
-          );
+          return produkt.category && produkt.category.toLowerCase() === valgtKategori.toLowerCase();
         });
 
         if (filtreredeProdukter.length === 0) {
-          document.getElementById("produkt-container").innerHTML =
-            `<h2 class="empty-msg">📭 Der er ikke uploadet nogen produkter i denne kategori endnu.</h2>`;
+          document.getElementById("produkt-container").innerHTML = `<h2 class="empty-msg">📭 Der er ikke uploadet nogen produkter i denne kategori endnu.</h2>`;
         } else {
-          visProdukter(filtreredeProdukter);
+          // visProdukter(filtreredeProdukter);
+          visteProdukter = filtreredeProdukter;
+          currentPage = 1;
+          renderPage();
         }
       }
     });

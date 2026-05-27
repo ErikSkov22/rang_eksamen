@@ -141,9 +141,10 @@
   NEW RELEASES / PRODUKT GRID
 =========================================== */
 .new-releases-section {
-  width: 100%;
+  width: 80%;
   padding: 60px 20px;
   box-sizing: border-box;
+  place-self: center;
 }
 
 .new-releases-header {
@@ -168,6 +169,56 @@
   color: var(--red);
   text-transform: uppercase;
   margin: 0;
+}
+/* ===========================================
+forside produkter i bunden 
+=========================================== */
+.front-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.front-product-slider {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  width: 100%;
+}
+
+.front-product-item img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.front-product-text {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--inter-font);
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+.front-product-text a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.front-slider-btn {
+  background: none;
+  border: none;
+  font-family: var(--lalezar-font);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.all-jewelry-link {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: var(--lalezar-font);
+  color: var(--black);
+  text-decoration: underline;
 }
 
 /* ===========================================
@@ -242,5 +293,9 @@
 
   .header-bold {
     font-size: 2rem;
+  }
+
+  .front-product-slider {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

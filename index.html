@@ -53,7 +53,7 @@
 
 
             <div class="foto-box">
-                <img src="photos/DSCF9223.JPG" alt="Smykker">
+                <img src="photos/unisexIndex.webp" alt="Smykker">
                 <div class="overlay-title-box">
                     <h1 class="overlay-title">HANDMADE</h1>
                     <h1 class="overlay-title"> JEWELRY</h1>
@@ -61,7 +61,7 @@
                 <a href="#" class="overlay-link">SE SMYKKER</a>
             </div>
             <div class="foto-box">
-                <img src="photos/DSCF7399.jpg" alt="Accessories">
+                <img src="photos/accessorieIndex.webp" alt="Accessories">
                 <a href="#" class="overlay-link">SE ACCESSORIES</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
 
         <section class="billedeogtekst">
             <div class="baernoget">
-                <img src="photos/necklacesIndex.jpg" alt="necklace">
+                <img src="photos/necklacesIndex.webp" alt="necklace">
             </div>
             <div class="splittekst">
                 <h2 class="split-title">BÆR NOGET</h2>
@@ -105,7 +105,7 @@
                 <h2 class="header-bold">ONE OF A KIND</h2>
             </div>
 
-            <div class="product-grid">
+            <!-- <div class="product-grid">
 
                 <div class="product-item">
                     <img src="photos/ring1.jpeg" alt="Unik ring 1">
@@ -127,7 +127,17 @@
                     <a href="#" class="product-link">SE MERE</a>
                 </div>
 
+            </div> -->
+
+            <div class="front-slider-wrapper">
+                <button id="frontPrevBtn" class="front-slider-btn">&lt;</button>
+
+                <div id="frontProductSlider" class="front-product-slider"></div>
+
+                <button id="frontNextBtn" class="front-slider-btn">&gt;</button>
             </div>
+
+            <a href="smykker.html" class="all-jewelry-link">SE ALLE SMYKKER</a>
         </section>
 
         <div class="section-divider"></div>
@@ -216,6 +226,8 @@
     <!-- JS -->
     <script src="js/navigation.js"></script>
     <script src="js/slidepanels.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/frontproducts.js"></script>
 
 </body>
 
