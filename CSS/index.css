@@ -83,7 +83,23 @@
   width: 100%;
   text-align: center;
 }
+/*****************/
+.youtube-crop {
+  width: 80%;
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+  position: relative;
+}
 
+.youtube-crop iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
 /* Split (Rød Boks) */
 .billedeogtekst {
   display: flex;

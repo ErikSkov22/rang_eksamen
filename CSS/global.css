@@ -360,8 +360,10 @@ summary {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-medium);
-  max-width: 1200px;
-  margin: 0 auto;
+  /* max-width: 1200px;
+  margin: 0 auto; */
+  max-width: 2000px;
+  margin: 0 10%;
 }
 
 .product-item {
