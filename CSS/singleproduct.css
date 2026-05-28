@@ -32,6 +32,7 @@
   letter-spacing: 2px;
   text-align: left;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .product-description .price {
@@ -145,13 +146,14 @@ section.others > h1 {
 @media (min-width: 768px) {
   .grid1-1 {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-xlarge);
     padding-top: 0;
     align-items: start;
   }
 
   .product-description {
-    padding: var(--space-xxxlarge) var(--space-xxxlarge) 0 var(--space-xxxlarge);
+    /* padding: var(--space-xxxlarge) var(--space-xxxlarge) 0 var(--space-large); */
+    padding-top: var(--space-xxxlarge);
+    padding-inline: var(--space-xxlarge);
     border-top: none;
   }
 
