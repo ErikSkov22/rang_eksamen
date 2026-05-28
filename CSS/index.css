@@ -203,7 +203,7 @@
   font-size: 0.8rem;
 }
 .product-link {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 .front-product-text a {
   text-decoration: none;
@@ -314,6 +314,6 @@
     font-size: 1.1rem;
   }
   .product-link {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }

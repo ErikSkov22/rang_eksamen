@@ -178,6 +178,7 @@ section.others > h1 {
     font-size: 90px;
     text-align: left;
     letter-spacing: 5px;
+    place-self: center;
   }
 
   .product-description > p {
@@ -206,6 +207,10 @@ section.others > h1 {
     flex-direction: row;
     justify-content: space-between;
 
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .similar-product-card .product-link {
+    font-size: 0.6rem;
   }
 }
