@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex">
     <meta name="description"
         content="Se Rangs håndlavede one of a kind-smykker og udvalgte accessories i et råt, urbant og unisex univers.">
-
+    <link rel="icon" type="image/png" href="photos/favicon_io/favicon-32x32.png">
     <link rel="stylesheet" href="CSS/custom.css">
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/smykker.css">
@@ -35,7 +35,7 @@
             <div class="nav-menu">
                 <div class="nav-left">
                     <a href="smykker.html">Smykker</a>
-                    <a href="accessories.html" style="color: var(--red);">Accessories</a>
+                    <a href="accessories.html" class="active-link">Accessories</a>
                     <a href="Om.html">Om</a>
                     <a href="kontakt.html">Kontakt</a>
                 </div>
@@ -54,6 +54,51 @@
         <h1 class="page-title">ACCESSORIES</h1>
         <div class="section-divider"></div>
         <div class="page-container">
+            <div class="sort-container">
+
+                <button id="sortToggle" class="sort-toggle">
+                    SORTER +
+                </button>
+
+                <div id="sortContent" class="sort-content">
+
+                    <label>
+                        <input type="radio" name="sort" value="none" checked>
+                        Ingen
+                    </label>
+
+                    <label>
+                        <input type="radio" name="sort" value="price-asc">
+                        Pris stigende
+                    </label>
+
+                    <label>
+                        <input type="radio" name="sort" value="price-desc">
+                        Pris faldende
+                    </label>
+
+                    <label>
+                        <input type="radio" name="sort" value="az">
+                        A-Å
+                    </label>
+
+                    <label>
+                        <input type="radio" name="sort" value="za">
+                        Å-A
+                    </label>
+
+                    <label>
+                        <input type="radio" name="sort" value="size-asc">
+                        Størrelse stigende
+                    </label>
+
+                    <label>
+                        <input type="radio" name="sort" value="size-desc">
+                        Størrelse faldende
+                    </label>
+
+                </div>
+            </div>
             <div class="product-grid" id="produkt-liste">
             </div>
         </div>
@@ -116,10 +161,10 @@
         <div class="double-line"></div>
 
         <form class="login-form" id="loginForm">
-            <label>E-mail</label>
+            <label for="loginEmail">E-mail</label>
             <input type="email" id="loginEmail">
 
-            <label>Adgangskode</label>
+            <label for="loginPassword">Adgangskode</label>
             <input type="password" id="loginPassword">
 
             <p id="loginError" class="login-error"></p>

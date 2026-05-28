@@ -1,4 +1,4 @@
-/*************** Reset *********************/
+/*************** Reset & Variabler *********************/
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +11,24 @@ img {
   display: block;
 }
 
-/* Variabler */
 :root {
-  /*farver*/
+  /* Farver */
   --bgcolor: #f4f5f0;
   --red: #a1292b;
   --black: #2a2929;
   --white: #fefffb;
 
-  /*fonte*/
+  /* Fonte */
   --caveat-font: "Caveat", cursive;
   --lalezar-font: "Lalezar", sans-serif;
   --inter-font: "Inter", sans-serif;
+
+  /* SPACING / AFSTANDE */
+  --space-xs: 5px;
+  --space-small: 10px;
+  --space-medium: 20px;
+  --space-large: 40px;
+  --space-xlarge: 80px;
+  --space-xxlarge: 120px;
+  --space-xxxlarge: 180px;
 }

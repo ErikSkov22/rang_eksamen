@@ -40,6 +40,7 @@ async function hentOgVisProdukter() {
     renderPage();
 
     opsætFiltrering();
+    setupSortering();
   } catch (e) {
     console.error(e);
   }
@@ -205,7 +206,6 @@ function opsætFiltrering() {
       const valgtKategori = knap.getAttribute("data-category");
 
       if (valgtKategori === "alle") {
-        // visProdukter(alleProdukter);
         visteProdukter = alleProdukter;
         currentPage = 1;
         renderPage();
@@ -217,12 +217,69 @@ function opsætFiltrering() {
         if (filtreredeProdukter.length === 0) {
           document.getElementById("produkt-container").innerHTML = `<h2 class="empty-msg">📭 Der er ikke uploadet nogen produkter i denne kategori endnu.</h2>`;
         } else {
-          // visProdukter(filtreredeProdukter);
           visteProdukter = filtreredeProdukter;
           currentPage = 1;
           renderPage();
         }
       }
+    });
+  });
+}
+
+function setupSortering() {
+  const sortToggle = document.querySelector("#sortToggle");
+  const sortContent = document.querySelector("#sortContent");
+
+  if (!sortToggle || !sortContent) return;
+
+  sortToggle.addEventListener("click", () => {
+    sortContent.classList.toggle("active");
+
+    if (sortContent.classList.contains("active")) {
+      sortToggle.innerText = "SORTER -";
+    } else {
+      sortToggle.innerText = "SORTER +";
+    }
+  });
+
+  document.querySelectorAll('input[name="sort"]').forEach((input) => {
+    input.addEventListener("change", () => {
+      const sortType = input.value;
+
+      // RESET
+      if (sortType === "none") {
+        visteProdukter = [...alleProdukter];
+      }
+
+      // PRIS
+      if (sortType === "price-asc") {
+        visteProdukter.sort((a, b) => Number(a.price) - Number(b.price));
+      }
+
+      if (sortType === "price-desc") {
+        visteProdukter.sort((a, b) => Number(b.price) - Number(a.price));
+      }
+
+      // NAVN
+      if (sortType === "az") {
+        visteProdukter.sort((a, b) => a.navn.localeCompare(b.navn));
+      }
+
+      if (sortType === "za") {
+        visteProdukter.sort((a, b) => b.navn.localeCompare(a.navn));
+      }
+
+      // SIZE
+      if (sortType === "size-asc") {
+        visteProdukter.sort((a, b) => Number(a.size || 0) - Number(b.size || 0));
+      }
+
+      if (sortType === "size-desc") {
+        visteProdukter.sort((a, b) => Number(b.size || 0) - Number(a.size || 0));
+      }
+
+      currentPage = 1;
+      renderPage();
     });
   });
 }

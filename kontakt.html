@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rang CPH</title>
+    <title>Rang CPH - Kontakt & FAQ</title>
     <meta name="description"
         content="Se Rangs håndlavede one of a kind-smykker og udvalgte accessories i et råt, urbant og unisex univers.">
-
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="icon" type="image/png" href="photos/favicon_io/favicon-32x32.png">
+    <link rel="stylesheet" href="CSS/custom.css">
+    <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/kontakt.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,8 @@
                     <a href="smykker.html">Smykker</a>
                     <a href="accessories.html">Accessories</a>
                     <a href="Om.html">Om</a>
-                    <a href="kontakt.html">Kontakt</a>
+
+                    <a href="kontakt.html" class="active-link">Kontakt</a>
                 </div>
                 <div class="nav-right">
                     <a href="nyheder.html">Nyheder</a>
@@ -73,21 +74,21 @@
                             </div>
                             <div>
                                 <p><strong>Hvornår kan jeg forvente at min pakke bliver leveret?</strong></p>
-                                <p>
 
-                                    Når pakken er afsendt gælder følgende leveringstider:
+                                <!-- RETTELSE 2: Opdelt p-tag og ul-liste korrekt -->
+                                <p>Når pakken er afsendt gælder følgende leveringstider:</p>
                                 <ul>
                                     <li>Dao: 1-3 hverdage</li>
                                     <li>Postnord: 1-2 hverdage</li>
                                     <li>GLS: 1-2 hverdage</li>
                                 </ul>
-
-
-                                OBS: Hvis der ikke er plads på udleveringsstedet, vil din pakke automatisk blive flyttet
-                                til nærmeste udleveringssted. <br>
-                                Du vil blive informeret af dit valgte fragtfirma. Opstår der problemer/spørgsmål med
-                                forsendelsen, kontakt os venligst
-                                på kundeservice@rang.dk.
+                                <p>
+                                    OBS: Hvis der ikke er plads på udleveringsstedet, vil din pakke automatisk blive
+                                    flyttet
+                                    til nærmeste udleveringssted. <br>
+                                    Du vil blive informeret af dit valgte fragtfirma. Opstår der problemer/spørgsmål med
+                                    forsendelsen, kontakt os venligst
+                                    på kundeservice@rang.dk.
                                 </p>
                             </div>
                             <div>
@@ -315,10 +316,10 @@
         <div class="double-line"></div>
 
         <form class="login-form" id="loginForm">
-            <label>E-mail</label>
+            <label for="loginEmail">E-mail</label>
             <input type="email" id="loginEmail">
 
-            <label>Adgangskode</label>
+            <label for="loginPassword">Adgangskode</label>
             <input type="password" id="loginPassword">
 
             <p id="loginError" class="login-error"></p>
@@ -332,10 +333,9 @@
     <!-- Mørk baggrund bag panel -->
     <div id="panelOverlay" class="panel-overlay"></div>
 
-
-    <!-- JS -->
-    <script src="js/navigation.js"></script>
-    <script src="js/slidepanels.js"></script>
+    <!-- RETTELSE 3: Opdateret til JS/ mappen og tilføjet defer attributter -->
+    <script src="JS/navigation.js" defer></script>
+    <script src="JS/slidepanels.js" defer></script>
 
 </body>
 
