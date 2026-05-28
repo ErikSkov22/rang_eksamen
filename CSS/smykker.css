@@ -249,11 +249,11 @@
   }
 
   .sort-container {
-    padding: 40px 12%;
+    padding: 40px 0%;
   }
 
   .sort-content {
-    right: 12%;
+    right: 0%;
     flex-direction: column;
   }
 }
