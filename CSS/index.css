@@ -48,11 +48,7 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   text-decoration: underline;
-  background-image: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0)
-  );
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
   padding-block: var(--space-large);
   margin-bottom: calc(var(--space-large) * -1);
 }
@@ -72,13 +68,16 @@
 .bts-video {
   width: 100%;
   max-width: 1300px;
+  overflow: hidden;
   height: auto;
   display: block;
+  aspect-ratio: 16/8;
 }
 
 .tekstovervideo {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-small);
   font-size: 2rem;
   margin-bottom: var(--space-large);
@@ -87,22 +86,13 @@
   width: 100%;
   text-align: center;
 }
-/*****************/
-.youtube-crop {
-  width: 80%;
-  aspect-ratio: 16 / 8;
-  overflow: hidden;
-  position: relative;
+
+.tekstovervideo h2 {
+  font-family: var(--lalezar-font);
 }
 
-.youtube-crop iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 120%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+.tekstovervideo .andenfont {
+  font-family: var(--caveat-font);
 }
 /* Split (Rød Boks) */
 .billedeogtekst {
@@ -260,6 +250,15 @@
   .tekstovervideo {
     flex-wrap: nowrap;
     gap: var(--space-xxxlarge);
+    font-size: 3rem;
+    flex-direction: row;
+  }
+
+  .tekstovervideo h2 {
+    font-size: 3rem;
+  }
+
+  .tekstovervideo .andenfont {
     font-size: 3rem;
   }
 
