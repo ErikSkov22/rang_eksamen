@@ -1,8 +1,32 @@
+/* Generel overskrift (Bruges på smykker.html) */
 .page-title {
   text-align: center;
   font-size: 2.5rem;
   margin-top: var(--space-xxxlarge);
+  margin-bottom: var(--space-large);
   text-transform: uppercase;
+}
+
+/* Todelt overskrift (Bruges på accessories.html) */
+.page-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 15px;
+  margin-top: var(--space-xxxlarge);
+  margin-bottom: var(--space-large);
+  width: 100%;
+}
+
+.page-title-container .page-title {
+  margin: 0;
+}
+
+.page-subtitle {
+  font-family: var(--caveat-font), cursive;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--black);
 }
 
 .filter-menu {
@@ -58,7 +82,6 @@
 
 .product-text-box {
   display: flex;
-  /* justify-content: space-between; */
   flex-direction: column;
   margin-top: var(--space-small);
   font-family: var(--lalezar-font), sans-serif;
@@ -213,6 +236,10 @@
 @media (min-width: 768px) {
   .page-title {
     font-size: 4rem;
+  }
+
+  .page-subtitle {
+    font-size: 2.5rem;
   }
 
   .filter-menu {
