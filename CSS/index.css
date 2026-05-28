@@ -48,7 +48,11 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   text-decoration: underline;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0)
+  );
   padding-block: var(--space-large);
   margin-bottom: calc(var(--space-large) * -1);
 }
@@ -279,15 +283,17 @@
 
   .front-product-text {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: var(--space-medium);
   }
   .front-product-text a {
     font-size: 1.5rem;
   }
 
   .front-product-text {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
   .product-link {
     font-size: 1rem;
